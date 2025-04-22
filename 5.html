@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaccaria Autonoleggio con Conducente Ostuni - NCC Premium Services</title>
+    <meta name="description" content="Servizio di noleggio con conducente a Ostuni (BR). Transfer aeroporto Brindisi, servizi NCC per eventi e cerimonie. Chiama ora per un servizio esclusivo.">
+    <meta name="keywords" content="noleggio con conducente Ostuni, servizio NCC Brindisi, autonoleggio con autista Ostuni, transfer aeroporto Brindisi">
+    <meta name="author" content="Zaccaria Autonoleggio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.zaccariaautonoleggio.it">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Zaccaria Autonoleggio con Conducente Ostuni">
+    <meta property="og:description" content="Servizio premium di noleggio con conducente a Ostuni e provincia. Transfer aeroporto e servizi esclusivi.">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:url" content="https://www.zaccariaautonoleggio.it">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LimousineService",
+        "name": "Zaccaria Autonoleggio con Conducente",
+        "description": "Servizio premium di noleggio con conducente a Ostuni (BR)",
+        "url": "https://www.zaccariaautonoleggio.it",
+        "telephone": "+39-123-456-7890",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Roma 123",
+            "addressLocality": "Ostuni",
+            "addressRegion": "BR",
+            "postalCode": "72017",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.7290,
+            "longitude": 17.5742
+        },
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "€€€",
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Ostuni"
+            },
+            {
+                "@type": "City",
+                "name": "Brindisi"
+            }
+        ],
+        "image": "/images/service-cars.jpg"
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-phone {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .cta-phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXX');
+    </script>
+</head>
+<body class="bg-black text-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- Language Selector (Fixed) -->
+    <div class="fixed top-4 right-4 z-50">
+        <select id="langSelector" class="bg-transparent border border-white/20 text-white px-3 py-1 rounded hover:bg-white/10 focus:outline-none">
+            <option value="it" selected>IT</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">ZACCARIA</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-gray-300 transition">Servizi</a>
+                <a href="#about" class="hover:text-gray-300 transition">Chi Siamo</a>
+                <a href="#contact" class="hover:text-gray-300 transition">Contatti</a>
+            </div>
+            <a href="tel:+39123456789" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition cta-phone" onclick="trackPhoneClick('header')">
+                <i class="fas fa-phone mr-2"></i>
+                <span data-lang="call-now">Chiama Ora</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" id="mobileMenuBtn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden fixed inset-0 bg-black/95 z-50" id="mobileMenu">
+            <div class="container mx-auto px-4 py-20">
+                <button class="absolute top-4 right-4 text-2xl" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="flex flex-col space-y-8 text-center">
+                    <a href="#services" class="text-2xl hover:text-gray-300 transition">Servizi</a>
+                    <a href="#about" class="text-2xl hover:text-gray-300 transition">Chi Siamo</a>
+                    <a href="#contact" class="text-2xl hover:text-gray-300 transition">Contatti</a>
+                    <a href="tel:+39123456789" class="bg-white text-black px-8 py-4 rounded-full font-semibold text-xl inline-block hover:bg-gray-200 transition">
+                        Chiama Ora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center hero-gradient relative">
+        <div class="container mx-auto px-4 text-center animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-lang="hero-title">
+                Servizio di Autonoleggio con Conducente a Ostuni
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-lang="hero-subtitle">
+                Eleganza, comfort e puntualità per i tuoi trasferimenti esclusivi in Puglia
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="tel:+39123456789" class="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transition cta-phone" onclick="trackPhoneClick('hero')">
+                    <i class="fas fa-phone mr-2"></i>
+                    <span data-lang="call-now">Chiama Ora</span>
+                </a>
+                <a href="#contact" class="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition">
+                    <span data-lang="request-quote">Richiedi Preventivo</span>
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services">
+                <i class="fas fa-chevron-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-lang="services-title">
+                I Nostri Servizi Premium
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-effect p-8 rounded-xl hover:bg-white/20 transition">
+                    <i class="fas fa-plane text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-airport">Transfer Aeroportuali</h3>
+                    <p data-lang="service-airport-desc">Collegamenti da/per l'aeroporto di Brindisi e altri aeroporti pugliesi con la massima puntualità.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass-effect p-8 rounded-xl hover:bg-white/20 transition">
+                    <i class="fas fa-briefcase text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-business">Business Travel</h3>
+                    <p data-lang="service-business-desc">Servizi dedicati per professionisti e aziende con autisti qualificati e veicoli di lusso.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass-effect p-8 rounded-xl hover:bg-white/20 transition">
+                    <i class="fas fa-ring text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-events">Eventi Speciali</h3>
+                    <p data-lang="service-events-desc">Matrimoni, cerimonie e occasioni speciali con servizio personalizzato e veicoli eleganti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="about-title">Chi Siamo</h2>
+                    <p class="text-lg mb-6" data-lang="about-text">
+                        Da oltre 10 anni offriamo servizi di autonoleggio con conducente di alta qualità nella provincia di Brindisi. 
+                        La nostra flotta di veicoli di lusso e il nostro team di autisti professionisti garantiscono un'esperienza di viaggio 
+                        esclusiva e memorabile.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-3xl font-bold mb-2">10+</h4>
+                            <p data-lang="years-experience">Anni di Esperienza</p>
+                        </div>
+                        <div>
+                            <h4 class="text-3xl font-bold mb-2">500+</h4>
+                            <p data-lang="happy-clients">Clienti Soddisfatti</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="/api/placeholder/600/400" alt="Luxury car" class="rounded-xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-lang="contact-title">Contattaci</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6" data-lang="contact-info">Informazioni di Contatto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-xl mr-4"></i>
+                            <a href="tel:+39123456789" class="hover:text-gray-300 transition">+39 123 456 789</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-xl mr-4"></i>
+                            <a href="mailto:info@zaccariaautonoleggio.it" class="hover:text-gray-300 transition">info@zaccariaautonoleggio.it</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-xl mr-4"></i>
+                            <span>Via Roma 123, 72017 Ostuni (BR)</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Nome" data-lang-placeholder="name" required
+                                   class="w-full px-4 py-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" data-lang-placeholder="email" required
+                                   class="w-full px-4 py-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Telefono" data-lang-placeholder="phone" required
+                                   class="w-full px-4 py-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        <div>
+                            <textarea placeholder="Messaggio" data-lang-placeholder="message" rows="4" required
+                                     class="w-full px-4 py-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-black py-3 rounded font-semibold hover:bg-gray-200 transition">
+                            <span data-lang="send-message">Invia Messaggio</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ZACCARIA</h3>
+                    <p class="text-sm text-gray-400" data-lang="footer-desc">
+                        Servizio premium di noleggio con conducente a Ostuni e provincia.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-lang="footer-links">Link Utili</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Servizi</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Chi Siamo</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-lang="footer-social">Seguici</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Zaccaria Autonoleggio - Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+39123456789" class="fixed bottom-8 right-8 bg-white text-black p-4 rounded-full shadow-lg hover:bg-gray-200 transition cta-phone" onclick="trackPhoneClick('floating')">
+        <i class="fas fa-phone text-2xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Language Translations
+        const translations = {
+            it: {
+                "call-now": "Chiama Ora",
+                "hero-title": "Servizio di Autonoleggio con Conducente a Ostuni",
+                "hero-subtitle": "Eleganza, comfort e puntualità per i tuoi trasferimenti esclusivi in Puglia",
+                "request-quote": "Richiedi Preventivo",
+                "services-title": "I Nostri Servizi Premium",
+                "service-airport": "Transfer Aeroportuali",
+                "service-airport-desc": "Collegamenti da/per l'aeroporto di Brindisi e altri aeroporti pugliesi con la massima puntualità.",
+                "service-business": "Business Travel",
+                "service-business-desc": "Servizi dedicati per professionisti e aziende con autisti qualificati e veicoli di lusso.",
+                "service-events": "Eventi Speciali",
+                "service-events-desc": "Matrimoni, cerimonie e occasioni speciali con servizio personalizzato e veicoli eleganti.",
+                "about-title": "Chi Siamo",
+                "about-text": "Da oltre 10 anni offriamo servizi di autonoleggio con conducente di alta qualità nella provincia di Brindisi. La nostra flotta di veicoli di lusso e il nostro team di autisti professionisti garantiscono un'esperienza di viaggio esclusiva e memorabile.",
+                "years-experience": "Anni di Esperienza",
+                "happy-clients": "Clienti Soddisfatti",
+                "contact-title": "Contattaci",
+                "contact-info": "Informazioni di Contatto",
+                "name": "Nome",
+                "email": "Email",
+                "phone": "Telefono",
+                "message": "Messaggio",
+                "send-message": "Invia Messaggio",
+                "footer-desc": "Servizio premium di noleggio con conducente a Ostuni e provincia.",
+                "footer-links": "Link Utili",
+                "footer-social": "Seguici"
+            },
+            en: {
+                "call-now": "Call Now",
+                "hero-title": "Chauffeur Service in Ostuni",
+                "hero-subtitle": "Elegance, comfort and punctuality for your exclusive transfers in Puglia",
+                "request-quote": "Request Quote",
+                "services-title": "Our Premium Services",
+                "service-airport": "Airport Transfers",
+                "service-airport-desc": "Connections to/from Brindisi airport and other Apulian airports with maximum punctuality.",
+                "service-business": "Business Travel",
+                "service-business-desc": "Dedicated services for professionals and companies with qualified drivers and luxury vehicles.",
+                "service-events": "Special Events",
+                "service-events-desc": "Weddings, ceremonies and special occasions with personalized service and elegant vehicles.",
+                "about-title": "About Us",
+                "about-text": "For over 10 years we have been offering high quality chauffeur services in the province of Brindisi. Our fleet of luxury vehicles and our team of professional drivers guarantee an exclusive and memorable travel experience.",
+                "years-experience": "Years of Experience",
+                "happy-clients": "Happy Clients",
+                "contact-title": "Contact Us",
+                "contact-info": "Contact Information",
+                "name": "Name",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "Message",
+                "send-message": "Send Message",
+                "footer-desc": "Premium chauffeur service in Ostuni and province.",
+                "footer-links": "Useful Links",
+                "footer-social": "Follow Us"
+            },
+            fr: {
+                "call-now": "Appelez Maintenant",
+                "hero-title": "Service de Location avec Chauffeur à Ostuni",
+                "hero-subtitle": "Élégance, confort et ponctualité pour vos transferts exclusifs dans les Pouilles",
+                "request-quote": "Demander un Devis",
+                "services-title": "Nos Services Premium",
+                "service-airport": "Transferts Aéroport",
+                "service-airport-desc": "Liaisons depuis/vers l'aéroport de Brindisi et autres aéroports des Pouilles avec une ponctualité maximale.",
+                "service-business": "Voyages d'Affaires",
+                "service-business-desc": "Services dédiés aux professionnels et entreprises avec chauffeurs qualifiés et véhicules de luxe.",
+                "service-events": "Événements Spéciaux",
+                "service-events-desc": "Mariages, cérémonies et occasions spéciales avec service personnalisé et véhicules élégants.",
+                "about-title": "Qui Sommes-Nous",
+                "about-text": "Depuis plus de 10 ans, nous offrons des services de location avec chauffeur de haute qualité dans la province de Brindisi. Notre flotte de véhicules de luxe et notre équipe de chauffeurs professionnels garantissent une expérience de voyage exclusive et mémorable.",
+                "years-experience": "Années d'Expérience",
+                "happy-clients": "Clients Satisfaits",
+                "contact-title": "Contactez-nous",
+                "contact-info": "Informations de Contact",
+                "name": "Nom",
+                "email": "Email",
+                "phone": "Téléphone",
+                "message": "Message",
+                "send-message": "Envoyer le Message",
+                "footer-desc": "Service premium de location avec chauffeur à Ostuni et dans la province.",
+                "footer-links": "Liens Utiles",
+                "footer-social": "Suivez-nous"
+            },
+            de: {
+                "call-now": "Jetzt Anrufen",
+                "hero-title": "Chauffeurservice in Ostuni",
+                "hero-subtitle": "Eleganz, Komfort und Pünktlichkeit für Ihre exklusiven Transfers in Apulien",
+                "request-quote": "Angebot Anfordern",
+                "services-title": "Unsere Premium-Services",
+                "service-airport": "Flughafentransfers",
+                "service-airport-desc": "Verbindungen von/zum Flughafen Brindisi und anderen apulischen Flughäfen mit maximaler Pünktlichkeit.",
+                "service-business": "Geschäftsreisen",
+                "service-business-desc": "Dedizierte Dienstleistungen für Fachleute und Unternehmen mit qualifizierten Fahrern und Luxusfahrzeugen.",
+                "service-events": "Besondere Anlässe",
+                "service-events-desc": "Hochzeiten, Zeremonien und besondere Anlässe mit persönlichem Service und eleganten Fahrzeugen.",
+                "about-title": "Über Uns",
+                "about-text": "Seit über 10 Jahren bieten wir hochwertige Chauffeurservices in der Provinz Brindisi an. Unsere Flotte von Luxusfahrzeugen und unser Team von professionellen Fahrern garantieren ein exklusives und unvergessliches Reiseerlebnis.",
+                "years-experience": "Jahre Erfahrung",
+                "happy-clients": "Zufriedene Kunden",
+                "contact-title": "Kontaktieren Sie Uns",
+                "contact-info": "Kontaktinformationen",
+                "name": "Name",
+                "email": "E-Mail",
+                "phone": "Telefon",
+                "message": "Nachricht",
+                "send-message": "Nachricht Senden",
+                "footer-desc": "Premium-Chauffeurservice in Ostuni und Umgebung.",
+                "footer-links": "Nützliche Links",
+                "footer-social": "Folgen Sie Uns"
+            }
+        };
+
+        // Language Switcher
+        document.getElementById('langSelector').addEventListener('change', function(e) {
+            const lang = e.target.value;
+            document.documentElement.lang = lang;
+            
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-lang-placeholder');
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+        });
+
+        // Navigation
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/90', 'backdrop-blur-lg');
+            } else {
+                navbar.classList.remove('bg-black/90', 'backdrop-blur-lg');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Form submission logic
+            alert('Form submitted! (Replace with actual submission logic)');
+        });
+
+        // Call Tracking
+        function trackPhoneClick(location) {
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'phone_click',
+                    'location': location,
+                    'timestamp': new Date().toISOString()
+                });
+            }
+            console.log('Phone clicked from:', location);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

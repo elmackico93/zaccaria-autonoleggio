@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaccaria NCC | Servizio di Noleggio con Conducente Ostuni</title>
+    <meta name="description" content="Servizio professionale di noleggio con conducente a Ostuni e provincia. Transfer aeroportuali, business travel e eventi speciali con autisti professionisti.">
+    <meta name="keywords" content="noleggio con conducente Ostuni, servizio NCC Brindisi, autonoleggio con autista Ostuni, transfer aeroporto Brindisi">
+    <meta name="author" content="Zaccaria Autonoleggio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.zaccariaautonoleggio.it">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Zaccaria NCC | Servizio Premium di Noleggio con Conducente">
+    <meta property="og:description" content="Il tuo partner professionale per servizi NCC a Ostuni e provincia. Affidabilità, comfort e puntualità.">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:url" content="https://www.zaccariaautonoleggio.it">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LimousineService",
+        "name": "Zaccaria NCC",
+        "description": "Servizio professionale di noleggio con conducente a Ostuni e provincia",
+        "url": "https://www.zaccariaautonoleggio.it",
+        "telephone": "+39-123-456-7890",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Roma 123",
+            "addressLocality": "Ostuni",
+            "addressRegion": "BR",
+            "postalCode": "72017",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.7290,
+            "longitude": 17.5742
+        },
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "€€€",
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Ostuni"
+            },
+            {
+                "@type": "City",
+                "name": "Brindisi"
+            }
+        ],
+        "image": "/images/service-cars.jpg"
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #00bf8f;
+            --secondary-color: #0077be;
+            --accent-color: #00e5c8;
+            --dark-color: #0f1216;
+            --text-color: #ffffff;
+            --gray-light: #e5e7eb;
+            --gray-medium: #9ca3af;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-color);
+            color: var(--text-color);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(15, 18, 22, 0.9), rgba(15, 18, 22, 0.95)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .tech-grid {
+            background-image: linear-gradient(rgba(0, 191, 143, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 191, 143, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 15s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
+        }
+        
+        .professional-button {
+            position: relative;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+            transition: all 0.3s;
+        }
+        
+        .professional-button::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: rgba(0, 191, 143, 0.1);
+            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+            transition: all 0.3s;
+        }
+        
+        .professional-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 191, 143, 0.2);
+        }
+        
+        .professional-button:hover::before {
+            background: rgba(0, 191, 143, 0.2);
+        }
+        
+        .card-professional {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .card-professional:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 191, 143, 0.1);
+        }
+        
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--dark-color);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 191, 143, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .service-icon i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .card-professional:hover .service-icon {
+            background: rgba(0, 191, 143, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .navbar-blur {
+            background: rgba(15, 18, 22, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .subtle-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary-color);
+            opacity: 0.2;
+            border-radius: 50%;
+            animation: particle-animation 6s infinite;
+        }
+        
+        @keyframes particle-animation {
+            0% { transform: scale(0) translateY(0); opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { transform: scale(1) translateY(-300px); opacity: 0; }
+        }
+    </style>
+    
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXX');
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="text-4xl font-bold gradient-text">ZACCARIA NCC</div>
+    </div>
+    
+    <!-- Language Selector (Fixed) -->
+    <div class="fixed top-4 right-4 z-50">
+        <select id="langSelector" class="bg-transparent border border-gray-600 text-white px-3 py-1 rounded hover:border-[var(--primary-color)] transition focus:outline-none">
+            <option value="it" selected>IT</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+        </select>
+    </div>
+
+    <!-- Tech Grid Background -->
+    <div class="fixed inset-0 tech-grid pointer-events-none"></div>
+    
+    <!-- Subtle Particles -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none"></div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-40 navbar-blur" id="navbar">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="gradient-text">ZACCARIA</span> 
+                <span class="text-sm font-normal ml-1 opacity-80">NCC</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-[var(--primary-color)] transition duration-300">Servizi NCC</a>
+                <a href="#fleet" class="hover:text-[var(--primary-color)] transition duration-300">La Nostra Flotta</a>
+                <a href="#about" class="hover:text-[var(--primary-color)] transition duration-300">Chi Siamo</a>
+                <a href="#contact" class="hover:text-[var(--primary-color)] transition duration-300">Contatti</a>
+            </div>
+            <a href="tel:+39123456789" class="professional-button" onclick="trackPhoneClick('header')">
+                <i class="fas fa-phone mr-2"></i>
+                <span data-lang="call-now">Chiama Ora</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" id="mobileMenuBtn">
+                <i class="fas fa-bars text-2xl hover:text-[var(--primary-color)]"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden fixed inset-0 bg-[var(--dark-color)]/95 z-50 backdrop-blur-xl" id="mobileMenu">
+            <div class="container mx-auto px-4 py-20">
+                <button class="absolute top-4 right-4 text-2xl hover:text-[var(--primary-color)]" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="flex flex-col space-y-8 text-center">
+                    <a href="#services" class="text-2xl hover:text-[var(--primary-color)] transition">Servizi NCC</a>
+                    <a href="#fleet" class="text-2xl hover:text-[var(--primary-color)] transition">La Nostra Flotta</a>
+                    <a href="#about" class="text-2xl hover:text-[var(--primary-color)] transition">Chi Siamo</a>
+                    <a href="#contact" class="text-2xl hover:text-[var(--primary-color)] transition">Contatti</a>
+                    <a href="tel:+39123456789" class="professional-button text-xl inline-block">
+                        <i class="fas fa-phone mr-2"></i>
+                        Chiama Ora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative hero-bg">
+        <div class="container mx-auto px-4 text-center z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" id="hero-title">
+                Servizio di Noleggio con Conducente<br/>
+                <span class="gradient-text">Professionale ad Ostuni</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300" id="hero-subtitle">
+                Un'esperienza di trasporto superiore con autisti professionisti per transfer aeroportuali, viaggi business e occasioni speciali
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="tel:+39123456789" class="professional-button text-lg" onclick="trackPhoneClick('hero')">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    <span data-lang="call-now">Chiama Ora</span>
+                </a>
+                <a href="#services" class="border-2 border-white/30 px-8 py-4 rounded font-semibold text-lg hover:bg-white/10 transition">
+                    <span data-lang="discover-services">Scopri i Servizi</span>
+                </a>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--dark-color)]"></div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services">
+                <i class="fas fa-chevron-down text-3xl text-[var(--primary-color)]"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang="services-title">
+                    Servizi NCC Premium
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-lang="services-subtitle">
+                    Soluzioni professionali di trasporto con conducente per ogni esigenza
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-professional p-8 rounded-xl">
+                    <div class="service-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-airport">Transfer Aeroportuali</h3>
+                    <p class="text-gray-400 mb-6" data-lang="service-airport-desc">
+                        Servizio premium da/per l'aeroporto di Brindisi con monitoraggio voli in tempo reale e assistenza bagagli.
+                    </p>
+                    <a href="tel:+39123456789" class="text-[var(--primary-color)] hover:text-[var(--accent-color)] transition inline-flex items-center" onclick="trackPhoneClick('services')">
+                        <span data-lang="book-now">Prenota ora</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Service 2 -->
+                <div class="card-professional p-8 rounded-xl">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-business">Business Travel</h3>
+                    <p class="text-gray-400 mb-6" data-lang="service-business-desc">
+                        Trasporto executive per professionisti e aziende. Puntualità, riservatezza e veicoli di rappresentanza.
+                    </p>
+                    <a href="tel:+39123456789" class="text-[var(--primary-color)] hover:text-[var(--accent-color)] transition inline-flex items-center" onclick="trackPhoneClick('services')">
+                        <span data-lang="book-now">Prenota ora</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Service 3 -->
+                <div class="card-professional p-8 rounded-xl">
+                    <div class="service-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4" data-lang="service-events">Eventi Speciali</h3>
+                    <p class="text-gray-400 mb-6" data-lang="service-events-desc">
+                        Servizio dedicato per matrimoni, cerimonie e occasioni speciali. Eleganza e attenzione ai dettagli.
+                    </p>
+                    <a href="tel:+39123456789" class="text-[var(--primary-color)] hover:text-[var(--accent-color)] transition inline-flex items-center" onclick="trackPhoneClick('services')">
+                        <span data-lang="book-now">Prenota ora</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Noleggio Breve -->
+            <div class="mt-16 text-center">
+                <div class="inline-block border border-gray-700 px-8 py-4 rounded-lg">
+                    <p class="text-lg mb-2" data-lang="subsidiary-info">
+                        Cerchi un noleggio auto senza conducente?
+                    </p>
+                    <p class="text-gray-400 mb-4" data-lang="subsidiary-desc">
+                        Visita la nostra azienda partner per il noleggio a breve termine
+                    </p>
+                    <a href="#" class="text-[var(--primary-color)] hover:text-[var(--accent-color)] transition inline-flex items-center">
+                        <span data-lang="visit-site">Visita il sito</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="py-24 bg-black/30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang="fleet-title">
+                    La Nostra Flotta Premium
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-lang="fleet-subtitle">
+                    Veicoli di lusso selezionati per offrire il massimo comfort e sicurezza
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Vehicle 1 -->
+                <div class="relative group">
+                    <img src="/api/placeholder/400/300" alt="Mercedes Classe S" class="rounded-xl w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-xl font-semibold mb-2">Mercedes Classe S</h3>
+                            <p class="text-gray-300 text-sm">Berlina di lusso - 4 posti</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vehicle 2 -->
+                <div class="relative group">
+                    <img src="/api/placeholder/400/300" alt="Mercedes Classe V" class="rounded-xl w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-xl font-semibold mb-2">Mercedes Classe V</h3>
+                            <p class="text-gray-300 text-sm">Minivan executive - 7 posti</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vehicle 3 -->
+                <div class="relative group">
+                    <img src="/api/placeholder/400/300" alt="Audi A8" class="rounded-xl w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-xl font-semibold mb-2">Audi A8</h3>
+                            <p class="text-gray-300 text-sm">Berlina premium - 4 posti</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="about-title">
+                        Chi Siamo
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6" data-lang="about-text">
+                        Da oltre 10 anni, Zaccaria NCC rappresenta l'eccellenza nel servizio di noleggio con conducente in provincia di Brindisi. I nostri autisti professionisti, la flotta premium e l'attenzione al dettaglio ci distinguono nel settore.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="text-3xl font-bold gradient-text mb-2">10+</h4>
+                            <p class="text-gray-400" data-lang="years-experience">Anni di Esperienza</p>
+                        </div>
+                        <div>
+                            <h4 class="text-3xl font-bold gradient-text mb-2">5000+</h4>
+                            <p class="text-gray-400" data-lang="happy-clients">Clienti Soddisfatti</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="professional-button">
+                        <span data-lang="contact-us">Contattaci</span>
+                    </a>
+                </div>
+                <div class="relative">
+                    <img src="/api/placeholder/600/400" alt="About us" class="rounded-xl shadow-2xl">
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-[var(--primary-color)]/10 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-award text-[var(--primary-color)] text-4xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-black/30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang="contact-title">
+                    Contattaci
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-lang="contact-subtitle">
+                    Siamo a tua disposizione per qualsiasi informazione o preventivo
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-semibold mb-8" data-lang="contact-info">Informazioni di Contatto</h3>
+                    <div class="space-y-6">
+                        <a href="tel:+39123456789" class="flex items-center group text-lg" onclick="trackPhoneClick('contact')">
+                            <div class="w-12 h-12 bg-[var(--primary-color)]/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-[var(--primary-color)]/20 transition">
+                                <i class="fas fa-phone text-[var(--primary-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold group-hover:text-[var(--primary-color)] transition">Telefono</div>
+                                <div class="text-gray-300">+39 123 456 789</div>
+                            </div>
+                        </a>
+                        <a href="mailto:info@zaccariaautonoleggio.it" class="flex items-center group text-lg">
+                            <div class="w-12 h-12 bg-[var(--primary-color)]/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-[var(--primary-color)]/20 transition">
+                                <i class="fas fa-envelope text-[var(--primary-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold group-hover:text-[var(--primary-color)] transition">Email</div>
+                                <div class="text-gray-300">info@zaccariaautonoleggio.it</div>
+                            </div>
+                        </a>
+                        <div class="flex items-center text-lg">
+                            <div class="w-12 h-12 bg-[var(--primary-color)]/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-[var(--primary-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Indirizzo</div>
+                                <div class="text-gray-300">Via Roma 123, 72017 Ostuni (BR)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Nome e Cognome" data-lang-placeholder="name" required
+                                   class="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--primary-color)] transition">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" data-lang-placeholder="email" required
+                                   class="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--primary-color)] transition">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Telefono" data-lang-placeholder="phone" required
+                                   class="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--primary-color)] transition">
+                        </div>
+                        <div>
+                            <textarea placeholder="Messaggio" data-lang-placeholder="message" rows="4" required
+                                     class="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--primary-color)] transition"></textarea>
+                        </div>
+                        <button type="submit" class="professional-button w-full">
+                            <span data-lang="send-message">Invia Messaggio</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <span class="gradient-text">ZACCARIA</span> NCC
+                    </h3>
+                    <p class="text-sm text-gray-400" data-lang="footer-desc">
+                        Servizio professionale di noleggio con conducente a Ostuni e provincia.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-lang="footer-services">Servizi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-[var(--primary-color)] transition">Transfer Aeroportuali</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-[var(--primary-color)] transition">Business Travel</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-[var(--primary-color)] transition">Eventi Speciali</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-lang="footer-links">Link Utili</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-[var(--primary-color)] transition">Chi Siamo</a></li>
+                        <li><a href="#fleet" class="text-gray-400 hover:text-[var(--primary-color)] transition">La Nostra Flotta</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-[var(--primary-color)] transition">Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-lang="footer-social">Seguici</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Zaccaria NCC - Servizio di Noleggio con Conducente | P.IVA: 01234567890</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+39123456789" class="fixed bottom-8 right-8 w-16 h-16 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] transition shadow-lg" onclick="trackPhoneClick('floating')">
+        <i class="fas fa-phone text-xl text-black"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Language Translations
+        const translations = {
+            it: {
+                "call-now": "Chiama Ora",
+                "discover-services": "Scopri i Servizi",
+                "services-title": "Servizi NCC Premium",
+                "services-subtitle": "Soluzioni professionali di trasporto con conducente per ogni esigenza",
+                "service-airport": "Transfer Aeroportuali",
+                "service-airport-desc": "Servizio premium da/per l'aeroporto di Brindisi con monitoraggio voli in tempo reale e assistenza bagagli.",
+                "service-business": "Business Travel",
+                "service-business-desc": "Trasporto executive per professionisti e aziende. Puntualità, riservatezza e veicoli di rappresentanza.",
+                "service-events": "Eventi Speciali",
+                "service-events-desc": "Servizio dedicato per matrimoni, cerimonie e occasioni speciali. Eleganza e attenzione ai dettagli.",
+                "book-now": "Prenota ora",
+                "subsidiary-info": "Cerchi un noleggio auto senza conducente?",
+                "subsidiary-desc": "Visita la nostra azienda partner per il noleggio a breve termine",
+                "visit-site": "Visita il sito",
+                "fleet-title": "La Nostra Flotta Premium",
+                "fleet-subtitle": "Veicoli di lusso selezionati per offrire il massimo comfort e sicurezza",
+                "about-title": "Chi Siamo",
+                "about-text": "Da oltre 10 anni, Zaccaria NCC rappresenta l'eccellenza nel servizio di noleggio con conducente in provincia di Brindisi. I nostri autisti professionisti, la flotta premium e l'attenzione al dettaglio ci distinguono nel settore.",
+                "years-experience": "Anni di Esperienza",
+                "happy-clients": "Clienti Soddisfatti",
+                "contact-us": "Contattaci",
+                "contact-title": "Contattaci",
+                "contact-subtitle": "Siamo a tua disposizione per qualsiasi informazione o preventivo",
+                "contact-info": "Informazioni di Contatto",
+                "name": "Nome e Cognome",
+                "email": "Email",
+                "phone": "Telefono",
+                "message": "Messaggio",
+                "send-message": "Invia Messaggio",
+                "footer-desc": "Servizio professionale di noleggio con conducente a Ostuni e provincia.",
+                "footer-services": "Servizi",
+                "footer-links": "Link Utili",
+                "footer-social": "Seguici"
+            },
+            en: {
+                "call-now": "Call Now",
+                "discover-services": "Discover Services",
+                "services-title": "Premium NCC Services",
+                "services-subtitle": "Professional chauffeur transport solutions for every need",
+                "service-airport": "Airport Transfers",
+                "service-airport-desc": "Premium service to/from Brindisi airport with real-time flight monitoring and luggage assistance.",
+                "service-business": "Business Travel",
+                "service-business-desc": "Executive transport for professionals and companies. Punctuality, discretion and executive vehicles.",
+                "service-events": "Special Events",
+                "service-events-desc": "Dedicated service for weddings, ceremonies and special occasions. Elegance and attention to detail.",
+                "book-now": "Book now",
+                "subsidiary-info": "Looking for car rental without driver?",
+                "subsidiary-desc": "Visit our partner company for short-term rentals",
+                "visit-site": "Visit website",
+                "fleet-title": "Our Premium Fleet",
+                "fleet-subtitle": "Luxury vehicles selected to offer maximum comfort and safety",
+                "about-title": "About Us",
+                "about-text": "For over 10 years, Zaccaria NCC has represented excellence in chauffeur services in the province of Brindisi. Our professional drivers, premium fleet and attention to detail set us apart in the industry.",
+                "years-experience": "Years of Experience",
+                "happy-clients": "Happy Clients",
+                "contact-us": "Contact Us",
+                "contact-title": "Contact Us",
+                "contact-subtitle": "We are at your disposal for any information or quote",
+                "contact-info": "Contact Information",
+                "name": "Full Name",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "Message",
+                "send-message": "Send Message",
+                "footer-desc": "Professional chauffeur service in Ostuni and province.",
+                "footer-services": "Services",
+                "footer-links": "Useful Links",
+                "footer-social": "Follow Us"
+            },
+            fr: {
+                "call-now": "Appelez Maintenant",
+                "discover-services": "Découvrir les Services",
+                "services-title": "Services NCC Premium",
+                "services-subtitle": "Solutions de transport avec chauffeur professionnel pour tous les besoins",
+                "service-airport": "Transferts Aéroport",
+                "service-airport-desc": "Service premium vers/depuis l'aéroport de Brindisi avec suivi des vols en temps réel et assistance bagages.",
+                "service-business": "Voyages d'Affaires",
+                "service-business-desc": "Transport exécutif pour professionnels et entreprises. Ponctualité, discrétion et véhicules de représentation.",
+                "service-events": "Événements Spéciaux",
+                "service-events-desc": "Service dédié aux mariages, cérémonies et occasions spéciales. Élégance et attention aux détails.",
+                "book-now": "Réserver maintenant",
+                "subsidiary-info": "Vous cherchez une location de voiture sans chauffeur ?",
+                "subsidiary-desc": "Visitez notre entreprise partenaire pour les locations à court terme",
+                "visit-site": "Visiter le site",
+                "fleet-title": "Notre Flotte Premium",
+                "fleet-subtitle": "Véhicules de luxe sélectionnés pour offrir un maximum de confort et de sécurité",
+                "about-title": "Qui Sommes-Nous",
+                "about-text": "Depuis plus de 10 ans, Zaccaria NCC représente l'excellence dans le service de location avec chauffeur dans la province de Brindisi. Nos chauffeurs professionnels, notre flotte premium et notre attention aux détails nous distinguent dans le secteur.",
+                "years-experience": "Années d'Expérience",
+                "happy-clients": "Clients Satisfaits",
+                "contact-us": "Contactez-nous",
+                "contact-title": "Contactez-nous",
+                "contact-subtitle": "Nous sommes à votre disposition pour toute information ou devis",
+                "contact-info": "Informations de Contact",
+                "name": "Nom et Prénom",
+                "email": "Email",
+                "phone": "Téléphone",
+                "message": "Message",
+                "send-message": "Envoyer le Message",
+                "footer-desc": "Service professionnel de location avec chauffeur à Ostuni et dans la province.",
+                "footer-services": "Services",
+                "footer-links": "Liens Utiles",
+                "footer-social": "Suivez-nous"
+            },
+            de: {
+                "call-now": "Jetzt Anrufen",
+                "discover-services": "Dienste Entdecken",
+                "services-title": "Premium NCC Dienste",
+                "services-subtitle": "Professionelle Chauffeur-Transportlösungen für jeden Bedarf",
+                "service-airport": "Flughafentransfers",
+                "service-airport-desc": "Premium-Service zum/vom Flughafen Brindisi mit Echtzeit-Flugüberwachung und Gepäckassistenz.",
+                "service-business": "Geschäftsreisen",
+                "service-business-desc": "Executive-Transport für Fachleute und Unternehmen. Pünktlichkeit, Diskretion und Geschäftsfahrzeuge.",
+                "service-events": "Besondere Anlässe",
+                "service-events-desc": "Dedizierter Service für Hochzeiten, Zeremonien und besondere Anlässe. Eleganz und Liebe zum Detail.",
+                "book-now": "Jetzt buchen",
+                "subsidiary-info": "Suchen Sie eine Mietwagen ohne Fahrer?",
+                "subsidiary-desc": "Besuchen Sie unser Partnerunternehmen für Kurzzeitmieten",
+                "visit-site": "Website besuchen",
+                "fleet-title": "Unsere Premium-Flotte",
+                "fleet-subtitle": "Luxusfahrzeuge ausgewählt, um maximalen Komfort und Sicherheit zu bieten",
+                "about-title": "Über Uns",
+                "about-text": "Seit über 10 Jahren steht Zaccaria NCC für Exzellenz im Chauffeurservice in der Provinz Brindisi. Unsere professionellen Fahrer, Premium-Flotte und Liebe zum Detail zeichnen uns in der Branche aus.",
+                "years-experience": "Jahre Erfahrung",
+                "happy-clients": "Zufriedene Kunden",
+                "contact-us": "Kontaktieren Sie uns",
+                "contact-title": "Kontaktieren Sie uns",
+                "contact-subtitle": "Wir stehen Ihnen für alle Informationen oder Angebote zur Verfügung",
+                "contact-info": "Kontaktinformationen",
+                "name": "Vor- und Nachname",
+                "email": "E-Mail",
+                "phone": "Telefon",
+                "message": "Nachricht",
+                "send-message": "Nachricht Senden",
+                "footer-desc": "Professioneller Chauffeurservice in Ostuni und Umgebung.",
+                "footer-services": "Dienste",
+                "footer-links": "Nützliche Links",
+                "footer-social": "Folgen Sie uns"
+            }
+        };
+
+        // Loading Screen Animation
+        gsap.to(".loading-screen", {
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.5,
+            onComplete: () => {
+                document.querySelector('.loading-screen').style.display = 'none';
+            }
+        });
+
+        // Subtle Particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'subtle-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Language Switcher
+        document.getElementById('langSelector').addEventListener('change', function(e) {
+            const lang = e.target.value;
+            document.documentElement.lang = lang;
+            
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-lang-placeholder');
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from("#hero-title", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.8
+        });
+
+        gsap.from("#hero-subtitle", {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1
+        });
+
+        // Cards Animation
+        gsap.utils.toArray('.card-professional').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2
+            });
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Form submission logic here
+            alert('Messaggio inviato con successo!');
+        });
+
+        // Call Tracking
+        function trackPhoneClick(location) {
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'phone_click',
+                    'location': location,
+                    'timestamp': new Date().toISOString()
+                });
+            }
+            console.log('Phone clicked from:', location);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-blur');
+            } else {
+                navbar.classList.remove('navbar-blur');
+            }
+        });
+    </script>
+</body>
+</html>
