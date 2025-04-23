@@ -6,19 +6,19 @@ const CARS = [
     id: 1,
     name: "Fiat 500X",
     description: "Crossover • 5 posti • Climatizzato",
-    image: "/images/fiat-500-x.jpg",
+    image: "/images/fiat-500-x.jpeg",
   },
   {
     id: 2,
     name: "Citroen C3",
     description: "Compatta • 5 posti • Economica",
-    image: "/images/citroen-c3.jpg",
+    image: "/images/citroen-c3.jpeg",
   },
   {
     id: 3,
     name: "Fiat Panda",
     description: "City car • 4 posti • Pratica",
-    image: "/images/fiat-panda.jpg",
+    image: "/images/fiat-panda.jpeg",
   }
 ];
 
