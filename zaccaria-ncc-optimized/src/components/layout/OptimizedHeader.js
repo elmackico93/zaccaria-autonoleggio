@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/animations';
 import useScrollEffect from '@/hooks/useScrollEffect';
 import useSectionRoute from '@/hooks/useSectionRoute';
+import EnhancedMobileMenu from "@/components/ui/EnhancedMobileMenu";
 
 const MENU_ITEMS = [
   { id: 'services', label: 'Servizi' },
@@ -16,7 +18,6 @@ const MENU_ITEMS = [
 
 export default function Header() {
   const scrolled = useScrollEffect();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState('it');
   
   // Use our custom hook for section-based navigation
@@ -24,10 +25,6 @@ export default function Header() {
     sections: MENU_ITEMS.map(item => item.id),
     updateUrl: true
   });
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
@@ -37,9 +34,6 @@ export default function Header() {
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     scrollToSection(sectionId);
-    if (mobileMenuOpen) {
-      toggleMobileMenu();
-    }
   };
 
   return (
@@ -59,7 +53,7 @@ export default function Header() {
         </select>
       </div>
 
-      {/* Navigation */}
+      {/* Desktop Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">
         <nav className="container mx-auto px-6 flex justify-between items-center">
           <a href="/" className="text-2xl font-bold tracking-tight chrome-text-enhanced" onClick={(e) => {
@@ -91,55 +85,11 @@ export default function Header() {
             </a>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button className="md:hidden" id="mobileMenuBtn" onClick={toggleMobileMenu} aria-label="Menu">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
-        </nav>
-        
-        {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-black/95 backdrop-blur-lg z-50 ${mobileMenuOpen ? '' : 'hidden'}`} id="mobileMenu">
-          <div className="container mx-auto px-6 py-8">
-            <div className="flex justify-between items-center mb-16">
-              <a href="/" className="text-2xl font-bold chrome-text-enhanced" onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                toggleMobileMenu();
-                window.history.replaceState(null, '', '/');
-              }}>ZACCARIA</a>
-              <button id="closeMobileMenu" onClick={toggleMobileMenu} aria-label="Close menu">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col space-y-8">
-              {MENU_ITEMS.map(item => (
-                <a 
-                  key={item.id}
-                  href={`/${item.id}`}
-                  className={`text-2xl font-light ${activeSection === item.id ? 'text-white' : 'text-silver-metallic'}`}
-                  onClick={(e) => handleNavClick(e, item.id)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a 
-                href="tel:+39123456789" 
-                className="call-button call-button-navbar inline-block text-center"
-                onClick={() => {
-                  trackPhoneClick('mobile-menu');
-                  toggleMobileMenu();
-                }}
-              >
-                <i className="fas fa-phone mr-2"></i>
-                <span>Chiama Ora</span>
-              </a>
-            </div>
+          {/* Enhanced Mobile Menu (shown on mobile only) */}
+          <div className="md:hidden">
+            <EnhancedMobileMenu />
           </div>
-        </div>
+        </nav>
       </header>
     </>
   );

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import Header from '@/components/layout/Header';
+import SectionNavigation from '@/components/client/SectionNavigation';
+import HeaderClient from '@/components/client/HeaderClient';
 import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
 import Fleet from '@/components/sections/Fleet';
@@ -12,7 +13,6 @@ import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
 import FixedCallButton from '@/components/ui/FixedCallButton';
 import LoadingScreen from '@/components/ui/LoadingScreen';
-import ClientInitializer from '@/components/ClientInitializer';
 import { createMetadata } from '@/lib/utils';
 
 // List of valid sections for routing
@@ -96,17 +96,15 @@ export default function SectionPage({ params }) {
     return notFound();
   }
   
-  // This is actually the same content as the home page
-  // but with different initial scroll position handled by ClientInitializer
   return (
     <>
-      {/* Client component that initializes animations and scrolls to the section */}
-      <ClientInitializer targetSection={section} />
-      
-      {/* Suspense boundaries for better loading experience */}
-      <Suspense fallback={<LoadingScreen />}>
-        <Header initialSection={section} />
+      {/* Client component for section navigation - isolated and wrapped in Suspense */}
+      <Suspense fallback={null}>
+        <SectionNavigation sectionId={section} />
       </Suspense>
+      
+      {/* Header with client-side wrapped version */}
+      <HeaderClient initialSection={section} />
 
       <main>
         <Hero />
