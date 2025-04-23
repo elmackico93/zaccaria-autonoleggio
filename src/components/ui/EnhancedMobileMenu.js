@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/animations';
 import MenuParticleEffect from './MenuParticleEffect';
 import MenuItemTilt from './MenuItemTilt';
+import Logo from '@/components/ui/Logo';
 
 export default function EnhancedMobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -136,7 +137,7 @@ export default function EnhancedMobileMenu() {
         <div className="container relative z-10 h-full mx-auto px-6 py-20 flex flex-col justify-between">
           {/* Logo */}
           <div className={`transition-all duration-500 ${isOpen ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-8'}`}>
-            <a href="/" className="text-2xl font-bold chrome-text-enhanced" onClick={(e) => {
+            <a href="/" className="inline-block" onClick={(e) => {
               e.preventDefault();
               closeMenu();
               setTimeout(() => {
@@ -144,7 +145,8 @@ export default function EnhancedMobileMenu() {
                 window.history.replaceState(null, '', '/');
               }, 300);
             }}>
-              ZACCARIA
+              {/* Use the Logo component with larger size for mobile menu */}
+              <Logo height={64} />
             </a>
           </div>
           

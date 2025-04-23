@@ -69,15 +69,15 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  manifest: '/manifest.json',
+  manifest: '/site.webmanifest',
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/favicons/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/favicons/favicon-32.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
-      { url: '/icons/apple-icon.png' },
+      { url: '/images/favicons/apple-touch-icon.png' },
     ],
   },
   verification: {
@@ -97,6 +97,29 @@ export default function RootLayout({ children }) {
         {/* Font Awesome with optimized loading */}
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        
+        {/* Favicon and App Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/favicons/favicon-16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/images/favicons/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/images/favicons/favicon-48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/images/favicons/favicon-64.png" type="image/png" sizes="64x64" />
+        
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" />
+        
+        {/* WebP favicons with PNG fallback */}
+        <link rel="icon" type="image/webp" sizes="16x16" href="/images/favicons/favicon-16.webp" />
+        <link rel="icon" type="image/webp" sizes="32x32" href="/images/favicons/favicon-32.webp" />
+        <link rel="icon" type="image/webp" sizes="192x192" href="/images/favicons/favicon-192.webp" />
+        
+        {/* Web Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Microsoft Tiles */}
+        <meta name="msapplication-TileColor" content="#0A0A0A" />
+        <meta name="msapplication-TileImage" content="/images/favicons/favicon-144.png" />
+        <meta name="theme-color" content="#0A0A0A" />
       </head>
       <body className={montserrat.className}>
         <SchemaOrg />

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/animations';
 import EnhancedMobileMenu from "@/components/ui/EnhancedMobileMenu";
+import Logo from '@/components/ui/Logo';
 
 export default function Header() {
   const [language, setLanguage] = useState('it');
@@ -51,8 +52,9 @@ export default function Header() {
       {/* Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">
         <nav className="container mx-auto px-6 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold tracking-tight chrome-text-enhanced">
-            ZACCARIA
+          <Link href="/" className="flex items-center">
+            {/* Use the Logo component instead of text */}
+            <Logo height={40} priority={true} />
           </Link>
           
           <div className="hidden md:flex items-center space-x-12">
