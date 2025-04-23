@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Header from '@/components/layout/Header'
+import Header from '@/components/layout/OptimizedHeader'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import Fleet from '@/components/sections/Fleet'
@@ -12,21 +12,17 @@ import Footer from '@/components/layout/Footer'
 import FixedCallButton from '@/components/ui/FixedCallButton'
 import LoadingScreen from '@/components/ui/LoadingScreen'
 import ClientInitializer from '@/components/ClientInitializer'
+import { WebVitals } from '@/components/analytics/WebVitals'
 
-// Export static metadata for this page
-export const metadata = {
-  title: 'Zaccaria NCC | Premium Chauffeur Service',
-}
-
-// Export static generation properties for maximum performance
-export const revalidate = 86400; // Revalidate every 24 hours
-
-// This is a Server Component (no 'use client' directive)
+// This page uses the optimized header with section-based URL routing
 export default function Home() {
   return (
     <>
-      {/* Client component that initializes animations and hydration */}
+      {/* Initialize client-side features */}
       <ClientInitializer />
+      
+      {/* Track web vitals for performance monitoring */}
+      <WebVitals />
       
       {/* Suspense boundaries for better loading experience */}
       <Suspense fallback={<LoadingScreen />}>
@@ -36,7 +32,7 @@ export default function Home() {
       <main>
         <Hero />
         
-        {/* Each major section gets its own Suspense boundary */}
+        {/* Each major section gets its own Suspense boundary for partial hydration */}
         <Suspense>
           <Services />
         </Suspense>
