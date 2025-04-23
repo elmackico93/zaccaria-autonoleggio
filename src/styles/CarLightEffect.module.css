@@ -1,0 +1,95 @@
+.carContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.lightEffect {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(200, 200, 200, 0.3) 30%,
+    rgba(180, 180, 180, 0) 70%
+  );
+  filter: blur(5px);
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(30%, 35%) scale(0.5);
+  animation: traceContour 4s ease-in-out infinite;
+}
+
+.lightEffect2 {
+  composes: lightEffect;
+  width: 40px;
+  height: 40px;
+  animation: traceHeadlight 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes traceContour {
+  0% {
+    opacity: 0;
+    transform: translate(30%, 35%) scale(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(35%, 30%) scale(1);
+  }
+  25% {
+    transform: translate(55%, 25%) scale(1);
+  }
+  40% {
+    transform: translate(75%, 30%) scale(1);
+  }
+  55% {
+    transform: translate(82%, 45%) scale(1);
+  }
+  70% {
+    transform: translate(75%, 60%) scale(1);
+  }
+  85% {
+    transform: translate(55%, 65%) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translate(35%, 60%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(30%, 35%) scale(0.5);
+  }
+}
+
+@keyframes traceHeadlight {
+  0% {
+    opacity: 0;
+    transform: translate(65%, 40%) scale(0.5);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(70%, 40%) scale(1);
+  }
+  30% {
+    transform: translate(75%, 40%) scale(1);
+  }
+  50% {
+    transform: translate(80%, 40%) scale(1.2);
+  }
+  70% {
+    transform: translate(75%, 40%) scale(1);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(70%, 40%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(65%, 40%) scale(0.5);
+  }
+}

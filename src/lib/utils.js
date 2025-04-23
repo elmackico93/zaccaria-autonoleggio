@@ -1,5 +1,9 @@
-export function createMetadata({ title, description, path, image }) {
-({ title, description, path, image, businessName, legalName }) {
+/**
+ * Utility functions for the Zaccaria NCC website
+ */
+
+// Create SEO metadata for pages
+export function createMetadata({ title, description, path, image, businessName, legalName }) {
   const baseUrl = 'https://www.zaccariaautonoleggio.it';
   const imageUrl = image || '/images/og-image.jpg';
   
@@ -42,9 +46,6 @@ export function createMetadata({ title, description, path, image }) {
     }
   };
 }
-/**
- * Utility functions for the Zaccaria NCC website
- */
 
 // Format a phone number consistently
 export function formatPhoneNumber(phoneNumber) {
@@ -72,22 +73,6 @@ export function createServiceSchema(service) {
     'provider': {
       '@type': 'LimousineService',
       'name': 'Zaccaria NCC',
-    }
-  };
-}
-
-// SEO helper function to create page metadata
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    alternates: {
-      canonical: `${baseUrl}${path}`,
     }
   };
 }
