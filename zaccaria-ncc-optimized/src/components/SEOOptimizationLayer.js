@@ -26,18 +26,22 @@ export default function SEOOptimizationLayer() {
     const trackPageView = () => {
       // Ottieni i dati di performance
       const getPerformanceData = () => {
-        const performanceEntries = performance.getEntriesByType('navigation');
-        
-        if (performanceEntries.length > 0) {
-          const nav = performanceEntries[0];
+        try {
+          const performanceEntries = performance.getEntriesByType('navigation');
           
-          return {
-            page_load_time: nav.domComplete - nav.fetchStart,
-            ttfb: nav.responseStart - nav.requestStart,
-            dom_load_time: nav.domContentLoadedEventEnd - nav.fetchStart,
-            redirect_time: nav.redirectEnd - nav.redirectStart,
-            first_paint: performance.getEntriesByName('first-paint')[0]?.startTime || 0
-          };
+          if (performanceEntries.length > 0) {
+            const nav = performanceEntries[0];
+            
+            return {
+              page_load_time: nav.domComplete - nav.fetchStart,
+              ttfb: nav.responseStart - nav.requestStart,
+              dom_load_time: nav.domContentLoadedEventEnd - nav.fetchStart,
+              redirect_time: nav.redirectEnd - nav.redirectStart,
+              first_paint: performance.getEntriesByName('first-paint')[0]?.startTime || 0
+            };
+          }
+        } catch (e) {
+          console.error('Error getting performance data:', e);
         }
         
         return null;
