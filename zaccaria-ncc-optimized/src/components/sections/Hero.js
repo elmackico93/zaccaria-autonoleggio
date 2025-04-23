@@ -1,21 +1,22 @@
-import Link from 'next/link';
-import CallButton from '@/components/ui/CallButton';
+'use client'
 
-// This is a Server Component by default (no 'use client' directive)
+import Link from 'next/link';
+import { trackPhoneClick } from '@/lib/animations';
+
 export default function Hero() {
   return (
     <section 
       className="min-h-screen flex items-center hero-metal relative parallax-container"
       style={{
-        backgroundImage: "linear-gradient(rgba(10,10,10,.05), rgba(10,10,10,.75)), url('/images/home.svg')"
+        backgroundImage: "linear-gradient(rgba(10,10,10,.5), rgba(10,10,10,.75)), url('/images/home-mercedes.jpg')"
       }}
     >
-      <div className="absolute inset-0 bg-black/50 z-0"></div>
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
       <div 
         className="parallax-element absolute inset-0" 
         data-depth="0.2" 
         style={{ 
-          backgroundImage: "url('/images/home.svg')",
+          backgroundImage: "url('/images/home-mercedes.jpg')",
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
           zIndex: -1 
@@ -37,11 +38,14 @@ export default function Hero() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 text-reveal-content">
-            <CallButton 
-              variant="hero"
-              location="hero"
-              text="Prenota Ora"
-            />
+            <a 
+              href="tel:+39123456789" 
+              className="call-button call-button-hero"
+              onClick={() => trackPhoneClick('hero')}
+            >
+              <i className="fas fa-phone mr-2"></i>
+              <span>Prenota Ora</span>
+            </a>
             <Link href="#services" className="metal-button-outline flex-none text-center">
               Scopri i Servizi
             </Link>
