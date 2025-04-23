@@ -75,6 +75,8 @@ export async function generateMetadata({ params }) {
   
   // Use the utility to create full metadata
   return createMetadata({
+    businessName: "Zaccaria NCC",
+    legalName: "Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto",
     title: metadata.title,
     description: metadata.description,
     path: `/${section}`,

@@ -63,11 +63,11 @@ export default function Contact() {
                 <div className="ml-6">
                   <h3 className="text-lg font-semibold mb-2">Telefono</h3>
                   <a 
-                    href="tel:+39123456789" 
+                    href="tel:+393313467527" 
                     className="text-2xl font-light hover:text-silver transition-colors group flex items-center"
                     onClick={() => trackPhoneClick('contact')}
                   >
-                    <span>+39 123 456 789</span>
+                    <span>+39 331 346 7527</span>
                     <svg className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -102,7 +102,7 @@ export default function Contact() {
                 </div>
                 <div className="ml-6">
                   <h3 className="text-lg font-semibold mb-2">Indirizzo</h3>
-                  <p className="text-lg">Via Roma 123, 72017 Ostuni (BR)</p>
+                  <p className="text-lg">Via Armando Diaz, 91, 72017 Ostuni (BR)</p>
                 </div>
               </div>
             </div>

@@ -35,9 +35,9 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold tracking-widest mb-6 uppercase">Contattaci</h4>
             <ul className="space-y-3">
-              <li className="text-silver-metallic text-sm">+39 123 456 789</li>
+              <li className="text-silver-metallic text-sm">+39 331 346 7527</li>
               <li className="text-silver-metallic text-sm">info@zaccariaautonoleggio.it</li>
-              <li className="text-silver-metallic text-sm">Via Roma 123, 72017 Ostuni (BR)</li>
+              <li className="text-silver-metallic text-sm">Via Armando Diaz, 91, 72017 Ostuni (BR)</li>
             </ul>
           </div>
         </div>

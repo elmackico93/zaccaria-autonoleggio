@@ -5,7 +5,7 @@ import { trackPhoneClick } from '@/lib/animations';
 export default function TourCallButton({ location }) {
   return (
     <a 
-      href="tel:+39123456789" 
+      href="tel:+393313467527" 
       className="group text-sm font-medium underline-offset-4 hover:underline text-silver hover:text-white transition-colors flex items-center"
       onClick={() => {
         // Dynamically import to reduce bundle size

@@ -27,6 +27,7 @@ export const metadata = {
     address: false,
     telephone: true,
   },
+  alternateNames: ["Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto"],
   metadataBase: new URL('https://www.zaccariaautonoleggio.it'),
   alternates: {
     canonical: '/',

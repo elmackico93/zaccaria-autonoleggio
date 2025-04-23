@@ -76,7 +76,7 @@ export default function Header() {
               </a>
             ))}
             <a 
-              href="tel:+39123456789" 
+              href="tel:+393313467527" 
               className="call-button call-button-navbar" 
               onClick={() => trackPhoneClick('header')}
             >

@@ -1,3 +1,47 @@
+export function createMetadata({ title, description, path, image }) {
+({ title, description, path, image, businessName, legalName }) {
+  const baseUrl = 'https://www.zaccariaautonoleggio.it';
+  const imageUrl = image || '/images/og-image.jpg';
+  
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${baseUrl}${path}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}${path}`,
+      siteName: businessName,
+      locale: 'it_IT',
+      type: 'website',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [imageUrl],
+    },
+    other: {
+      'business:contact_data:street_address': '${BUSINESS_ADDRESS}',
+      'business:contact_data:locality': '${BUSINESS_CITY}',
+      'business:contact_data:postal_code': '${BUSINESS_POSTAL}',
+      'business:contact_data:country_name': 'Italy',
+      'business:contact_data:phone_number': '+39 ${BUSINESS_PHONE}',
+      'og:site_name': businessName,
+      'og:locale': 'it_IT',
+    }
+  };
+}
 /**
  * Utility functions for the Zaccaria NCC website
  */
@@ -33,17 +77,6 @@ export function createServiceSchema(service) {
 }
 
 // SEO helper function to create page metadata
-export function createMetadata({ title, description, path, image }) {
-  const baseUrl = 'https://www.zaccariaautonoleggio.it';
-  const imageUrl = image || '/images/og-image.jpg';
-  
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: `${baseUrl}${path}`,
       images: [
         {
           url: imageUrl,

@@ -62,7 +62,7 @@ export default function Header() {
             <Link href="#rental" className="menu-item text-sm font-medium uppercase">Autonoleggio</Link>
             <Link href="#contact" className="menu-item text-sm font-medium uppercase">Contatti</Link>
             <a 
-              href="tel:+39123456789" 
+              href="tel:+393313467527" 
               className="call-button call-button-navbar" 
               onClick={() => trackPhoneClick('header')}
             >

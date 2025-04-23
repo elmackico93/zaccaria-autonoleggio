@@ -185,7 +185,7 @@ export default function EnhancedMobileMenu() {
             style={{ transitionDelay: isOpen ? '600ms' : '0ms' }}
           >
             <a 
-              href="tel:+39123456789" 
+              href="tel:+393313467527" 
               className="call-button call-button-navbar mobile-menu-call-button flex items-center justify-center w-full md:w-auto mb-8 relative"
               onClick={() => {
                 trackPhoneClick('mobile-menu');

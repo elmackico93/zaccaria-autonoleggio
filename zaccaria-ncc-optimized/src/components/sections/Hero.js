@@ -39,7 +39,7 @@ export default function Hero() {
           </div>
           <div className="flex flex-col sm:flex-row gap-6 text-reveal-content">
             <a 
-              href="tel:+39123456789" 
+              href="tel:+393313467527" 
               className="call-button call-button-hero"
               onClick={() => trackPhoneClick('hero')}
             >

@@ -8,14 +8,21 @@ export default function SchemaOrg() {
         __html: `
           {
             "@context": "https://schema.org",
-            "@type": "LimousineService",
+            "@type": "LocalBusiness",
             "name": "Zaccaria NCC",
-            "description": "Servizio professionale di noleggio con conducente a Ostuni e provincia di Brindisi",
+            "alternateName": "Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto",
+            "description": "Servizio di noleggio con conducente e autonoleggio senza conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia.",
             "url": "https://www.zaccariaautonoleggio.it",
-            "telephone": "+39-123-456-7890",
+            "telephone": "+39-331 346 7527",
+            "email": "info@zaccariaautonoleggio.it",
+            "logo": "https://www.zaccariaautonoleggio.it/images/logo.jpg",
+            "image": "https://www.zaccariaautonoleggio.it/images/service-cars.jpg",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Cash, Credit Card",
+            "priceRange": "€€€",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Via Roma 123",
+                "streetAddress": "Via Armando Diaz, 91",
                 "addressLocality": "Ostuni",
                 "addressRegion": "BR",
                 "postalCode": "72017",
@@ -26,8 +33,20 @@ export default function SchemaOrg() {
                 "latitude": 40.7290,
                 "longitude": 17.5742
             },
-            "openingHours": "Mo-Su 00:00-23:59",
-            "priceRange": "€€€",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
             "areaServed": [
                 {
                     "@type": "City",
@@ -36,12 +55,21 @@ export default function SchemaOrg() {
                 {
                     "@type": "City",
                     "name": "Brindisi"
+                },
+                {
+                    "@type": "State",
+                    "name": "Puglia"
                 }
             ],
-            "image": "https://www.zaccariaautonoleggio.it/images/service-cars.jpg",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "105"
+            },
             "sameAs": [
               "https://www.facebook.com/zaccariancc",
-              "https://www.instagram.com/zaccariancc"
+              "https://www.instagram.com/zaccariancc",
+              "https://www.google.com/maps/place/TAXI+-+NCC+OSTUNI+Rent+a+Car/@40.7290,17.5742,17z"
             ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -66,6 +94,13 @@ export default function SchemaOrg() {
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Noleggio auto senza conducente"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Transfer luxury Mercedes"
                   }
                 }
               ]
