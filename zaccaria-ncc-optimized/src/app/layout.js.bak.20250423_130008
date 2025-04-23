@@ -2,7 +2,6 @@ import './globals.css'
 import { Montserrat } from 'next/font/google'
 import SchemaOrg from '@/components/SchemaOrg'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
-import SEOOptimizationLayer from '@/components/SEOOptimizationLayer'
 
 // Optimize font loading with display swap and preload
 const montserrat = Montserrat({ 
@@ -123,7 +122,6 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <SchemaOrg />
         <GoogleAnalytics />
-        <SEOOptimizationLayer />
         {children}
         
         {/* Add noscript tag for GTM */}

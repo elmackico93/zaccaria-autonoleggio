@@ -1,0 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+import EnhancedMobileMenu from "@/components/ui/EnhancedMobileMenu";
+          </div>
+            <EnhancedMobileMenu />
+          </div>

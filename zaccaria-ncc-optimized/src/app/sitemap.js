@@ -10,13 +10,15 @@ export default async function sitemap() {
     
     // Define all dynamic and static routes
     const routes = [
+      // Homepage (highest priority)
       {
         url: `${baseUrl}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 1,
       },
-      // Section routes
+      
+      // Main section routes
       {
         url: `${baseUrl}/services`,
         lastModified: new Date(),
@@ -33,7 +35,7 @@ export default async function sitemap() {
         url: `${baseUrl}/tour`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
-        priority: 0.8,
+        priority: 0.9, // Increased priority for tours based on SEO analysis
       },
       {
         url: `${baseUrl}/rental`,
@@ -48,26 +50,110 @@ export default async function sitemap() {
         priority: 0.7,
       },
       {
+        url: `${baseUrl}/testimonials`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      },
+      {
         url: `${baseUrl}/contact`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.9,
       },
+      
+      // Specific service pages
+      {
+        url: `${baseUrl}/services/transfer-aeroporto-brindisi`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      {
+        url: `${baseUrl}/services/transfer-aeroporto-bari`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      {
+        url: `${baseUrl}/services/noleggio-con-conducente-matrimoni`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      },
+      
+      // Specific tour pages
+      {
+        url: `${baseUrl}/tour/valle-itria`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      {
+        url: `${baseUrl}/tour/enogastronomico-puglia`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      {
+        url: `${baseUrl}/tour/citta-arte-puglia`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      
+      // Location-based pages
+      {
+        url: `${baseUrl}/locations/ostuni`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/locations/brindisi`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/locations/bari`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/locations/lecce`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/locations/alberobello`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      
+      // FAQ, Terms, Privacy
+      {
+        url: `${baseUrl}/faq`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      },
+      {
+        url: `${baseUrl}/terms`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.3,
+      },
+      {
+        url: `${baseUrl}/privacy`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.3,
+      },
     ];
-    
-    // In a real application, you might fetch these dynamically from a CMS or API
-    // For example, to add individual tour pages:
-    /*
-    const tours = await fetchTours();
-    const tourRoutes = tours.map(tour => ({
-      url: `${baseUrl}/tour/${tour.slug}`,
-      lastModified: tour.updatedAt,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    }));
-    
-    return [...routes, ...tourRoutes];
-    */
     
     return routes;
   }

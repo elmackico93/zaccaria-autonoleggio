@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Script per correggere il problema del branch Git esistente
+
+set -e # Exit immediately if a command exits with a non-zero status
+
+# Colori per output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}Inizio correzione per branch Git esistente...${NC}"
+
+# Verifica se siamo nella directory del progetto
+if [ ! -f "package.json" ]; then
+  echo -e "${RED}Errore: package.json non trovato. Assicurati di eseguire lo script dalla directory principale del progetto.${NC}"
+  exit 1
+fi
+
+# Verifica se il branch esiste già
+BRANCH_DATE=$(date +%Y%m%d)
+BASE_BRANCH_NAME="seo-optimization-${BRANCH_DATE}"
+BRANCH_EXISTS=$(git branch --list "${BASE_BRANCH_NAME}")
+
+if [ -n "$BRANCH_EXISTS" ]; then
+  echo -e "${YELLOW}Il branch ${BASE_BRANCH_NAME} esiste già.${NC}"
+  
+  # Opzione 1: Crea un nuovo branch con timestamp
+  TIMESTAMP=$(date +%H%M%S)
+  NEW_BRANCH_NAME="${BASE_BRANCH_NAME}-${TIMESTAMP}"
+  
+  echo -e "${BLUE}Creando un nuovo branch con timestamp: ${NEW_BRANCH_NAME}${NC}"
+  git checkout -b "${NEW_BRANCH_NAME}" || {
+    echo -e "${RED}Errore nella creazione del nuovo branch.${NC}"
+    exit 1
+  }
+  
+  echo -e "${GREEN}Branch ${NEW_BRANCH_NAME} creato con successo.${NC}"
+  
+  # Aggiorna il nome del branch nello script principale
+  if [ -f "script.sh" ]; then
+    echo -e "${BLUE}Aggiornamento nome branch nello script principale...${NC}"
+    cp script.sh script.sh.bak
+    sed "s/BRANCH_NAME=\"seo-optimization-\$(date +%Y%m%d)\"/BRANCH_NAME=\"${NEW_BRANCH_NAME}\"/" script.sh.bak > script.sh
+    chmod +x script.sh
+    echo -e "${GREEN}Script principale aggiornato.${NC}"
+  else
+    echo -e "${YELLOW}File script.sh non trovato. Impossibile aggiornare automaticamente.${NC}"
+    echo -e "${YELLOW}Modifica manualmente il nome del branch nello script o procedi con il branch corrente.${NC}"
+  fi
+else
+  echo -e "${GREEN}Il branch ${BASE_BRANCH_NAME} non esiste. Lo script principale dovrebbe funzionare correttamente.${NC}"
+fi
+
+echo -e "${GREEN}Correzione completata.${NC}"
+echo -e "${GREEN}Ora puoi eseguire nuovamente lo script principale.${NC}"

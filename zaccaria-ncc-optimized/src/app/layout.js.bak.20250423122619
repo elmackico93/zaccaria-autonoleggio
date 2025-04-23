@@ -2,7 +2,6 @@ import './globals.css'
 import { Montserrat } from 'next/font/google'
 import SchemaOrg from '@/components/SchemaOrg'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
-import SEOOptimizationLayer from '@/components/SEOOptimizationLayer'
 
 // Optimize font loading with display swap and preload
 const montserrat = Montserrat({ 
@@ -15,24 +14,11 @@ const montserrat = Montserrat({
 // Metadata for SEO optimization
 export const metadata = {
   title: {
-    default: 'Zaccaria NCC Ostuni | Noleggio Con Conducente Puglia',
-    template: '%s | Zaccaria NCC Ostuni'
+    default: 'Zaccaria NCC | Premium Chauffeur Service',
+    template: '%s | Zaccaria NCC'
   },
-  description: 'Servizio di noleggio con conducente a Ostuni. Transfer aeroporto Brindisi e Bari, tour guidati in Puglia con Mercedes e autonoleggio senza conducente. Prenota ora.',
-  keywords: [
-    'noleggio con conducente Ostuni',
-    'NCC Ostuni',
-    'transfer aeroporto Brindisi',
-    'noleggio con conducente Bari',
-    'servizio NCC Salento',
-    'tour Valle d\'Itria',
-    'transfer privato Puglia',
-    'chauffeur service Puglia',
-    'noleggio auto con conducente matrimoni Ostuni',
-    'tour enogastronomici Puglia',
-    'transfer aeroporto Brindisi Ostuni',
-    'Mercedes NCC Puglia'
-  ],
+  description: 'Servizio di noleggio con conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia e autonoleggio senza conducente. Prenota ora per un servizio di alta qualità.',
+  keywords: ['noleggio con conducente Ostuni', 'tour Puglia', 'autonoleggio', 'servizio NCC Brindisi', 'transfer aeroporto Brindisi'],
   authors: [{ name: 'Zaccaria NCC' }],
   creator: 'Zaccaria NCC',
   publisher: 'Zaccaria NCC',
@@ -41,7 +27,6 @@ export const metadata = {
     address: false,
     telephone: true,
   },
-  alternateNames: ["Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto"],
   metadataBase: new URL('https://www.zaccariaautonoleggio.it'),
   alternates: {
     canonical: '/',
@@ -51,8 +36,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'Zaccaria NCC | Servizio Premium di Noleggio Con Conducente in Puglia',
-    description: 'Servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso in Puglia. Transfer aeroporto Brindisi, tour guidati e autonoleggio.',
+    title: 'Zaccaria NCC | Luxury Chauffeur Service',
+    description: 'Il servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso. Transfer, tour guidati e autonoleggio.',
     url: 'https://www.zaccariaautonoleggio.it',
     siteName: 'Zaccaria NCC',
     locale: 'it_IT',
@@ -62,14 +47,14 @@ export const metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Zaccaria NCC Premium Chauffeur Service in Puglia',
+        alt: 'Zaccaria NCC Premium Chauffeur Service',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaccaria NCC | Servizio Premium di Noleggio Con Conducente in Puglia',
-    description: 'Servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso in Puglia. Transfer aeroporto Brindisi, tour guidati e autonoleggio.',
+    title: 'Zaccaria NCC | Luxury Chauffeur Service',
+    description: 'Il servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso. Transfer, tour guidati e autonoleggio.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -89,8 +74,6 @@ export const metadata = {
       { url: '/favicon.ico' },
       { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/icons/apple-icon.png' },
@@ -100,12 +83,6 @@ export const metadata = {
     google: 'google-site-verification-code',
   },
   category: 'transportation',
-  other: {
-    'geo.region': 'IT-BR',
-    'geo.placename': 'Ostuni',
-    'geo.position': '40.7290;17.5742',
-    'ICBM': '40.7290, 17.5742'
-  }
 }
 
 export default function RootLayout({ children }) {
@@ -123,7 +100,6 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <SchemaOrg />
         <GoogleAnalytics />
-        <SEOOptimizationLayer />
         {children}
         
         {/* Add noscript tag for GTM */}

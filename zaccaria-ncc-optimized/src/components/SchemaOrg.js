@@ -57,8 +57,28 @@ export default function SchemaOrg() {
                     "name": "Brindisi"
                 },
                 {
+                    "@type": "City",
+                    "name": "Bari"
+                },
+                {
                     "@type": "State",
                     "name": "Puglia"
+                },
+                {
+                    "@type": "City",
+                    "name": "Lecce"
+                },
+                {
+                    "@type": "City",
+                    "name": "Alberobello"
+                },
+                {
+                    "@type": "City",
+                    "name": "Gallipoli"
+                },
+                {
+                    "@type": "City",
+                    "name": "Otranto"
                 }
             ],
             "aggregateRating": {
@@ -79,31 +99,67 @@ export default function SchemaOrg() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Transfer aeroportuali"
+                    "name": "Transfer aeroportuali",
+                    "description": "Servizio di transfer privato dagli aeroporti di Brindisi e Bari",
+                    "areaServed": ["Brindisi", "Bari", "Ostuni", "Puglia"]
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Tour guidati in Puglia"
+                    "name": "Tour guidati in Puglia",
+                    "description": "Tour guidati tra i borghi bianchi della Valle d'Itria, le scogliere del Gargano e le spiagge del Salento",
+                    "areaServed": ["Valle d'Itria", "Gargano", "Salento", "Puglia"]
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Noleggio auto senza conducente"
+                    "name": "Noleggio auto senza conducente",
+                    "description": "Servizio di autonoleggio senza conducente con veicoli moderni e affidabili"
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Transfer luxury Mercedes"
+                    "name": "Transfer luxury Mercedes",
+                    "description": "Servizio premium di trasporto con auto Mercedes di alta gamma"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Tour enogastronomici",
+                    "description": "Esperienze enogastronomiche alla scoperta delle eccellenze pugliesi: frantoi, cantine vinicole e masserie",
+                    "areaServed": ["Puglia"]
                   }
                 }
               ]
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Marco Rossi"
+                },
+                "datePublished": "2024-03-15",
+                "reviewBody": "Un servizio eccezionale in ogni dettaglio. La professionalità e la puntualità sono la loro firma distintiva. Non potrei immaginare un servizio migliore.",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                }
+              }
+            ],
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "name": "Zaccaria NCC | Premium Chauffeur Service",
+              "description": "Servizio di noleggio con conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia e autonoleggio senza conducente."
             }
           }
         `,
