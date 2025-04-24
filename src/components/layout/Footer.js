@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import FooterLinksSEO from '@/components/ui/FooterLinksSEO';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -87,6 +88,7 @@ export default function Footer() {
         </div>
         
         {/* Fine separator line */}
+        <FooterLinksSEO />
         <div className="metal-divider mb-6"></div>
         
         {/* Copyright and social icons row */}

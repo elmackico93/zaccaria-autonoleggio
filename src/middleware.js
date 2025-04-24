@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// Define valid sections for your site
+// Define valid sections and SEO slugs for your site
 const VALID_SECTIONS = [
   'offers',
   'services',
@@ -12,8 +12,24 @@ const VALID_SECTIONS = [
   'contact'
 ];
 
+// SEO page slugs that should be redirected to the seo-pages directory
+const SEO_SLUGS = [
+  'ncc-ostuni',
+  'transfer-aeroporto-brindisi',
+  'autonoleggio-con-conducente-alberobello',
+  'tour-autista-privato-puglia',
+  'transfer-bari-ostuni'
+];
+
 export function middleware(request) {
   const { pathname } = request.nextUrl;
+  
+  // Check if this is a SEO page route
+  if (SEO_SLUGS.some(slug => pathname === `/${slug}`)) {
+    // Rewrite to the actual page location
+    const slug = pathname.slice(1); // Remove the leading slash
+    return NextResponse.rewrite(new URL(`/seo-pages/${slug}`, request.url));
+  }
   
   // Check if URL is a direct section route
   // Pattern: /section-name

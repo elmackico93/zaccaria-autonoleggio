@@ -74,6 +74,43 @@ export default async function sitemap() {
     
     return [...routes, ...tourRoutes];
     */
+    // SEO Landing Page - ncc-ostuni
+    {
+      url: `${baseUrl}/ncc-ostuni`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // SEO Landing Page - transfer-aeroporto-brindisi
+    {
+      url: `${baseUrl}/transfer-aeroporto-brindisi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // SEO Landing Page - autonoleggio-con-conducente-alberobello
+    {
+      url: `${baseUrl}/autonoleggio-con-conducente-alberobello`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // SEO Landing Page - tour-autista-privato-puglia
+    {
+      url: `${baseUrl}/tour-autista-privato-puglia`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // SEO Landing Page - transfer-bari-ostuni
+    {
+      url: `${baseUrl}/transfer-bari-ostuni`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
+    
     
     return routes;
   }
