@@ -14,6 +14,7 @@ const VALID_SECTIONS = [
 
 // SEO page slugs that should be redirected to the seo-pages directory
 const SEO_SLUGS = [
+  'servizi-puglia',
   'ncc-ostuni',
   'transfer-aeroporto-brindisi',
   'autonoleggio-con-conducente-alberobello',

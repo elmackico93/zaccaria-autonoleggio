@@ -112,5 +112,13 @@ export default async function sitemap() {
     
     
     
+        // SEO Landing Page - servizi-puglia
+    {
+      url: `${baseUrl}/servizi-puglia`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
     return routes;
   }
