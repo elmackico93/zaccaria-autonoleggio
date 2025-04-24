@@ -13,7 +13,8 @@ const MENU_ITEMS = [
   { id: 'fleet', label: 'Flotta' },
   { id: 'tour', label: 'Tour' },
   { id: 'rental', label: 'Autonoleggio' },
-  { id: 'contact', label: 'Contatti' }
+  { id: 'contact', label: 'Contatti' },
+  { id: 'offers', label: 'Offerte' },
 ];
 
 export default function Header() {
