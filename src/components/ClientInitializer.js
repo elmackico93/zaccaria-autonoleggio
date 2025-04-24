@@ -1,4 +1,5 @@
 'use client';
+import DiscountHighlightEffect from '@/components/effects/DiscountHighlightEffect';
 
 import { useEffect } from 'react';
 import { initViewTransitions } from '@/lib/viewTransitions';
@@ -103,5 +104,10 @@ export default function ClientInitializer({ targetSection }) {
   }
 
   // This component doesn't render anything visual
+  return (
+    <>
+      <DiscountHighlightEffect selector=".offer-discount" />
+    </>
+  );
   return null;
 }

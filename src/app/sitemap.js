@@ -25,6 +25,12 @@ export default async function sitemap() {
       },
       {
         url: `${baseUrl}/fleet`,
+     {
+      url: `${baseUrl}/offers`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+     },
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,

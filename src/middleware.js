@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 // Define valid sections for your site
 const VALID_SECTIONS = [
+  'offers',
   'services',
   'fleet',
   'tour',

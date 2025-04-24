@@ -63,6 +63,7 @@ export default function Header() {
             <Link href="#tour" className="menu-item text-sm font-medium uppercase">Tour</Link>
             <Link href="#rental" className="menu-item text-sm font-medium uppercase">Autonoleggio</Link>
             <Link href="#contact" className="menu-item text-sm font-medium uppercase">Contatti</Link>
+            <Link href="#offers" className="menu-item text-sm font-medium uppercase offers-menu-item offers-icon-menu">OFFERTE<span className="offers-highlight"></span></Link>
             <a 
               href="tel:+393313467527" 
               className="call-button call-button-navbar" 

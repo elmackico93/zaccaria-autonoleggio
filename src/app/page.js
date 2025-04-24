@@ -7,6 +7,7 @@ import Tours from '@/components/sections/Tours'
 import CarRental from '@/components/sections/CarRental'
 import About from '@/components/sections/About'
 import Testimonials from '@/components/sections/Testimonials'
+import Offers from '@/components/sections/Offers'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 import FixedCallButton from '@/components/ui/FixedCallButton'
@@ -55,6 +56,10 @@ export default function Home() {
         
         <Suspense>
           <Testimonials />
+        </Suspense>
+
+        <Suspense>
+          <Offers />
         </Suspense>
         
         <Suspense>

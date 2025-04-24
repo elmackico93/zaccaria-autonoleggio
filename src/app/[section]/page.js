@@ -9,6 +9,7 @@ import Tours from '@/components/sections/Tours';
 import CarRental from '@/components/sections/CarRental';
 import About from '@/components/sections/About';
 import Testimonials from '@/components/sections/Testimonials';
+import Offers from '@/components/sections/Offers'
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
 import FixedCallButton from '@/components/ui/FixedCallButton';
@@ -17,6 +18,7 @@ import { createMetadata } from '@/lib/utils';
 
 // List of valid sections for routing
 const VALID_SECTIONS = [
+  'offers',
   'services',
   'fleet',
   'tour',
@@ -52,6 +54,11 @@ const SECTION_METADATA = {
     title: 'Testimonial | Zaccaria NCC',
     description: 'Scopri cosa dicono i nostri clienti sul servizio Zaccaria NCC: qualità, professionalità e attenzione ai dettagli.'
   },
+  offers: {
+    title: 'Offerte Speciali | Zaccaria NCC',
+    description: 'Scopri le nostre offerte esclusive: tour guidati, transfer aeroportuali e pacchetti business con sconti speciali e servizi premium.'
+  },
+
   contact: {
     title: 'Contatti | Zaccaria NCC',
     description: 'Contattaci per prenotazioni, preventivi o informazioni sui nostri servizi di noleggio con conducente e tour in Puglia.'

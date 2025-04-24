@@ -99,7 +99,8 @@ export default function EnhancedMobileMenu() {
     { id: 'fleet', label: 'Flotta', icon: 'fa-car-side' },
     { id: 'tour', label: 'Tour', icon: 'fa-map-marked-alt' },
     { id: 'rental', label: 'Autonoleggio', icon: 'fa-car' },
-    { id: 'contact', label: 'Contatti', icon: 'fa-envelope' }
+    { id: 'contact', label: 'Contatti', icon: 'fa-envelope' },,
+    { id: 'offers', label: 'Offerte', icon: 'fa-tags' },
   ];
 
   return (
