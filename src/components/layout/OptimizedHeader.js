@@ -44,13 +44,13 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">
-        <nav className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
+        <nav className="z-50 container mx-auto px-6 flex justify-between items-center">
+        <Link href="/" className="z-50 flex items-center">
             {/* Use the Logo component instead of text */}
             <Logo height={100} priority={true} />
           </Link>
           
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="z-50 hidden md:flex items-center space-x-12">
             {MENU_ITEMS.map(item => (
               <a 
                 key={item.id}
@@ -63,16 +63,16 @@ export default function Header() {
             ))}
             <a 
               href="tel:+393313467527" 
-              className="call-button call-button-navbar" 
+              className="z-50 call-button call-button-navbar" 
               onClick={() => trackPhoneClick('header')}
             >
-              <i className="fas fa-phone mr-2"></i>
+              <i className="z-50 fas fa-phone mr-2"></i>
               <span>Chiama Ora</span>
             </a>
           </div>
           
           {/* Enhanced Mobile Menu (shown on mobile only) */}
-          <div className="md:hidden">
+          <div className="z-50 md:hidden">
             <EnhancedMobileMenu />
           </div>
         </nav>

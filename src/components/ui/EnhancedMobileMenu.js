@@ -108,49 +108,31 @@ export default function EnhancedMobileMenu() {
       {/* Hamburger Button */}
       <button 
         ref={buttonRef}
-        className={`md:hidden z-50 w-12 h-12 flex flex-col justify-center items-center transition-all duration-300 bg-transparent ${isOpen ? 'menu-button-open' : ''}`} 
-        onClick={toggleMenu}
+        className={`md:hidden fixed top-6 right-6 z-[100] w-12 h-12 flex flex-col justify-center items-center transition-transform duration-500 bg-transparent cursor-pointer ${isOpen ? 'menu-button-open' : ''}`} 
+        onClick={() => isOpen ? closeMenu() : toggleMenu()}
         aria-label="Menu"
         aria-expanded={isOpen}
       >
-        <span className={`block w-8 h-0.5 bg-white mb-1.5 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+        <span className={`block w-8 h-0.5 bg-white mb-1.5 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2 scale-110' : ''}`}></span>
         <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`block w-8 h-0.5 bg-white mt-1.5 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        <span className={`block w-8 h-0.5 bg-white mt-1.5 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2 scale-110' : ''}`}></span>
       </button>
 
       {/* Full-screen Menu */}
       <div 
         ref={menuRef}
-        className={`fixed inset-0 z-40 transition-all duration-500 ease-premium ${isOpen ? 'menu-open' : 'menu-closed'}`}
+        className={`fixed inset-0 z-40 transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] bg-gradient-to-br from-black via-neutral-900 to-neutral-950 backdrop-blur-md backdrop-saturate-150 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
       >
         {/* Background layers */}
-        <div className={`absolute inset-0 bg-black/90 backdrop-blur-xl transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`}></div>
-        <div className={`absolute inset-0 bg-gradient-to-br from-gunmetal/30 to-black/30 transition-opacity duration-700 ${isOpen ? 'opacity-100' : 'opacity-0'}`}></div>
         
         {/* Particle effect */}
         <MenuParticleEffect isActive={isOpen} />
         
         {/* Metallic accent lines */}
-        <div className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-silver-metallic to-transparent transition-transform duration-1000 ${isOpen ? 'transform-none' : '-translate-x-full'}`}></div>
-        <div className={`absolute bottom-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-silver-metallic to-transparent transition-transform duration-1000 ${isOpen ? 'transform-none' : 'translate-x-full'}`}></div>
         
         {/* Content */}
-        <div className="container relative z-10 h-full mx-auto px-6 py-20 flex flex-col justify-between">
-          {/* Logo */}
-          <div className={`transition-all duration-500 ${isOpen ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-8'}`}>
-            <a href="/" className="inline-block" onClick={(e) => {
-              e.preventDefault();
-              closeMenu();
-              setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                window.history.replaceState(null, '', '/');
-              }, 300);
-            }}>
-              {/* Use the Logo component with larger size for mobile menu */}
-              <Logo height={64} />
-            </a>
-          </div>
           
+  <div className="container relative z-10 h-full mt-28 px-6 py-20 flex flex-col justify-start flex flex-col justify-between">
           {/* Navigation */}
           <nav className="flex-grow flex items-center">
             <ul className="w-full space-y-6">
@@ -195,7 +177,6 @@ export default function EnhancedMobileMenu() {
                 closeMenu();
               }}
             >
-              <div className="call-button-pulse"></div>
               <i className="fas fa-phone mr-2"></i>
               <span>Chiama Ora</span>
             </a>
@@ -224,12 +205,10 @@ export default function EnhancedMobileMenu() {
         
         .menu-closed {
           visibility: hidden;
-          clip-path: circle(0% at calc(100% - 28px) 28px);
         }
         
         .menu-open {
           visibility: visible;
-          clip-path: circle(150% at calc(100% - 28px) 28px);
         }
         
         .call-button-pulse {
