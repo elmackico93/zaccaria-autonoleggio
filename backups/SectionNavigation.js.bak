@@ -24,11 +24,6 @@ export default function SectionNavigation({ sectionId }) {
         top: targetPosition,
         behavior: 'smooth'
       });
-      
-      // Only update URL when we're on the homepage, to avoid messing with section URLs
-      if (window.location.pathname === '/') {
-        history.replaceState(null, '', `/${sectionId}`);
-      }
     }, 100);
     
     return () => clearTimeout(timer);

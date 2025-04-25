@@ -58,6 +58,7 @@ const SECTION_METADATA = {
     title: 'Offerte Speciali | Zaccaria NCC',
     description: 'Scopri le nostre offerte esclusive: tour guidati, transfer aeroportuali e pacchetti business con sconti speciali e servizi premium.'
   },
+
   contact: {
     title: 'Contatti | Zaccaria NCC',
     description: 'Contattaci per prenotazioni, preventivi o informazioni sui nostri servizi di noleggio con conducente e tour in Puglia.'
@@ -140,10 +141,6 @@ export default function SectionPage({ params }) {
         
         <Suspense>
           <Testimonials />
-        </Suspense>
-        
-        <Suspense>
-          <Offers />
         </Suspense>
         
         <Suspense>

@@ -50,9 +50,9 @@ export function middleware(request) {
     const section = pathname.slice(1);
     
     if (VALID_SECTIONS.includes(section)) {
-      // If it's a valid section, rewrite to the app/[section]/page.js component
-      // This is crucial for dynamic routes to work properly
-      return NextResponse.rewrite(new URL(`/${section}`, request.url));
+      // This is a valid section - preserve the URL but rewrite internally 
+      // to the section page component
+      return NextResponse.rewrite(new URL(`/[section]`, request.url));
     }
   }
   

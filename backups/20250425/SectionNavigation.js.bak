@@ -1,13 +1,15 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 /**
  * Client component for section navigation
- * This handles the client-side scrolling to sections without requiring
- * useSearchParams or other client hooks in the main page component
+ * This handles the client-side scrolling to sections with proper URL handling
  */
 export default function SectionNavigation({ sectionId }) {
+  const router = useRouter();
+  
   useEffect(() => {
     if (!sectionId) return;
     
@@ -20,19 +22,20 @@ export default function SectionNavigation({ sectionId }) {
       const offset = 20; // Additional offset for spacing
       const targetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight - offset;
       
+      // Scroll to the section
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
       
-      // Only update URL when we're on the homepage, to avoid messing with section URLs
-      if (window.location.pathname === '/') {
-        history.replaceState(null, '', `/${sectionId}`);
+      // Update the URL without triggering navigation
+      if (window.history && window.location.pathname === '/') {
+        window.history.replaceState(null, '', `/${sectionId}`);
       }
     }, 100);
     
     return () => clearTimeout(timer);
-  }, [sectionId]);
+  }, [sectionId, router]);
   
   return null; // This component doesn't render anything visible
 }

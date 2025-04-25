@@ -34,6 +34,7 @@ const nextConfig = {
     optimizePackageImports: ['react-icons', 'lucide-react', 'date-fns'],
     // For better memory usage
     optimizeServerReact: true,
+    // Note: fontLoaders option removed as it's not supported in this version
   },
   
   // Enable bundle analyzer in analyze mode
@@ -100,24 +101,6 @@ const nextConfig = {
       },
     ];
   },
-  
-  // Add rewrites to support section pages and SEO pages
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Handle section routes like /fleet
-        {
-          source: '/:section(services|fleet|tour|rental|about|testimonials|contact|offers)',
-          destination: '/[section]'
-        },
-        // Handle SEO page routes
-        {
-          source: '/:slug(servizi-puglia|ncc-ostuni|ncc-bari|ncc-salento|transfer-aeroporto-brindisi|autonoleggio-con-conducente-alberobello|tour-autista-privato-puglia|transfer-bari-ostuni)',
-          destination: '/seo-pages/:slug'
-        }
-      ]
-    };
-  }
 };
 
 module.exports = nextConfig;

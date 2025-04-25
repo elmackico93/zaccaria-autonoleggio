@@ -27,12 +27,6 @@ export function WebVitals({
         console.log(`Metric:`, metric);
       }
       
-      // Only try to send metrics if we're in production
-      // This avoids unnecessary requests during development
-      if (process.env.NODE_ENV !== 'production') {
-        return;
-      }
-      
       try {
         // Use sendBeacon if available for more reliable delivery
         if (navigator.sendBeacon) {
@@ -42,24 +36,16 @@ export function WebVitals({
           );
           navigator.sendBeacon(endpoint, blob);
         } else {
-          // Fallback to fetch with keepalive and handle any errors gracefully
+          // Fallback to fetch with keepalive
           await fetch(endpoint, {
-            method: 'POST',
             body: JSON.stringify(metric),
+            method: 'POST',
             keepalive: true,
             headers: { 'Content-Type': 'application/json' }
-          }).catch(err => {
-            // Silently handle any errors to prevent 404 console errors
-            if (debug) {
-              console.warn('Failed to send vitals:', err);
-            }
           });
         }
       } catch (error) {
-        // Silently handle any errors
-        if (debug) {
-          console.warn('Error reporting web vital:', error);
-        }
+        console.error('Error reporting web vital:', error);
       }
     };
     
@@ -130,19 +116,10 @@ export function WebVitals({
           }
         });
         
-        // Start observing layout shifts if supported
-        if (typeof PerformanceObserver !== 'undefined') {
-          try {
-            clsObserver.observe({ type: 'layout-shift', buffered: true });
-          } catch (e) {
-            // Silently handle errors if this type isn't supported
-          }
-        }
+        // Start observing layout shifts
+        clsObserver.observe({ type: 'layout-shift', buffered: true });
       } catch (error) {
-        // Silently handle any errors
-        if (debug) {
-          console.warn('Error measuring performance:', error);
-        }
+        console.error('Error measuring performance:', error);
       }
     };
     

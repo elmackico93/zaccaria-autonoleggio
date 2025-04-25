@@ -16,8 +16,6 @@ const VALID_SECTIONS = [
 const SEO_SLUGS = [
   'servizi-puglia',
   'ncc-ostuni',
-  'ncc-bari',
-  'ncc-salento',
   'transfer-aeroporto-brindisi',
   'autonoleggio-con-conducente-alberobello',
   'tour-autista-privato-puglia',
@@ -27,19 +25,9 @@ const SEO_SLUGS = [
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   
-  // Skip middleware for static assets and API routes
-  if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/images') ||
-    pathname.includes('.') // Files with extensions (like .jpg, .css, etc.)
-  ) {
-    return NextResponse.next();
-  }
-  
   // Check if this is a SEO page route
   if (SEO_SLUGS.some(slug => pathname === `/${slug}`)) {
-    // Rewrite to the actual page location but keep the URL in the browser intact
+    // Rewrite to the actual page location
     const slug = pathname.slice(1); // Remove the leading slash
     return NextResponse.rewrite(new URL(`/seo-pages/${slug}`, request.url));
   }
@@ -50,9 +38,12 @@ export function middleware(request) {
     const section = pathname.slice(1);
     
     if (VALID_SECTIONS.includes(section)) {
-      // If it's a valid section, rewrite to the app/[section]/page.js component
-      // This is crucial for dynamic routes to work properly
-      return NextResponse.rewrite(new URL(`/${section}`, request.url));
+      // This is a valid section, but we should redirect to the home page
+      // with the hash for better static generation and cache sharing
+      const url = request.nextUrl.clone();
+      url.pathname = '/';
+      url.hash = section;
+      return NextResponse.redirect(url);
     }
   }
   
@@ -63,6 +54,6 @@ export function middleware(request) {
 export const config = {
   matcher: [
     // Match all routes except static files, api routes, etc.
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon.ico|images|icons|api).*)',
   ],
 };

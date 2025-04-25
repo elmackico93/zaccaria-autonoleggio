@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/animations';
 import MenuParticleEffect from './MenuParticleEffect';
 import MenuItemTilt from './MenuItemTilt';
@@ -14,21 +14,6 @@ export default function EnhancedMobileMenu() {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   const pathname = usePathname();
-  const router = useRouter();
-
-  // Check if we're on an SEO page
-  const menuItems = [
-    { id: 'services', label: 'Servizi', icon: 'fa-concierge-bell' },
-    { id: 'fleet', label: 'Flotta', icon: 'fa-car-side' },
-    { id: 'tour', label: 'Tour', icon: 'fa-map-marked-alt' },
-    { id: 'rental', label: 'Autonoleggio', icon: 'fa-car' },
-    { id: 'contact', label: 'Contatti', icon: 'fa-envelope' },
-    { id: 'offers', label: 'Offerte', icon: 'fa-tags' },
-  ];
-  
-  const isSeoPage = pathname.includes('/seo-pages/') || 
-                   (pathname !== '/' && 
-                    !menuItems.some(item => pathname === `/${item.id}`));
 
   // Handle closing the menu with escape key
   useEffect(() => {
@@ -48,7 +33,7 @@ export default function EnhancedMobileMenu() {
 
     // Get active section from URL
     const section = pathname.replace('/', '');
-    if (section && menuItems.some(item => item.id === section)) {
+    if (section) {
       setActiveSection(section);
     }
 
@@ -65,7 +50,7 @@ export default function EnhancedMobileMenu() {
       document.removeEventListener('keydown', handleEscape);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen, pathname, menuItems]);
+  }, [isOpen, pathname]);
 
   const toggleMenu = () => {
     if (animationComplete) {
@@ -89,12 +74,6 @@ export default function EnhancedMobileMenu() {
     closeMenu();
     
     setTimeout(() => {
-      // If we're on an SEO page, navigate back to home then scroll
-      if (isSeoPage) {
-        router.push(`/${sectionId}`);
-        return;
-      }
-      
       const element = document.getElementById(sectionId);
       if (element) {
         const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
@@ -105,11 +84,24 @@ export default function EnhancedMobileMenu() {
           behavior: 'smooth'
         });
         
-        // Update URL without navigation
-        window.history.replaceState(null, '', `/${sectionId}`);
+        // Update URL
+        window.history.replaceState(
+          { ...window.history.state, as: `/${sectionId}`, url: `/${sectionId}` },
+          '',
+          `/${sectionId}`
+        );
       }
     }, 300);
   };
+
+  const menuItems = [
+    { id: 'services', label: 'Servizi', icon: 'fa-concierge-bell' },
+    { id: 'fleet', label: 'Flotta', icon: 'fa-car-side' },
+    { id: 'tour', label: 'Tour', icon: 'fa-map-marked-alt' },
+    { id: 'rental', label: 'Autonoleggio', icon: 'fa-car' },
+    { id: 'contact', label: 'Contatti', icon: 'fa-envelope' },,
+    { id: 'offers', label: 'Offerte', icon: 'fa-tags' },
+  ];
 
   return (
     <>
@@ -146,22 +138,14 @@ export default function EnhancedMobileMenu() {
         <div className="container relative z-10 h-full mx-auto px-6 py-20 flex flex-col justify-between">
           {/* Logo */}
           <div className={`transition-all duration-500 ${isOpen ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-8'}`}>
-            <a 
-              href="/" 
-              className="inline-block" 
-              onClick={(e) => {
-                e.preventDefault();
-                closeMenu();
-                setTimeout(() => {
-                  if (isSeoPage) {
-                    router.push('/');
-                  } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    window.history.replaceState(null, '', '/');
-                  }
-                }, 300);
-              }}
-            >
+            <a href="/" className="inline-block" onClick={(e) => {
+              e.preventDefault();
+              closeMenu();
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.history.replaceState(null, '', '/');
+              }, 300);
+            }}>
               {/* Use the Logo component with larger size for mobile menu */}
               <Logo height={64} />
             </a>
