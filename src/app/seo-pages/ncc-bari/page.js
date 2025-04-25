@@ -1,3 +1,5 @@
+import EnhancedHeader from "@/components/layout/OptimizedHeader";
+import Footer from "@/components/layout/Footer";
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }) {
 }
 
 // Main page component
-export default function SEOPage() {
+function InnerSEOPage() {
   // Define FAQs data
   const faqs = [
   {
@@ -283,6 +285,16 @@ export default function SEOPage() {
       </main>
       <Footer />
       <FixedCallButton />
+    </>
+  );
+}
+
+export default function PageWrapper() {
+  return (
+    <>
+      <EnhancedHeader />
+      <InnerSEOPage />
+      <Footer />
     </>
   );
 }

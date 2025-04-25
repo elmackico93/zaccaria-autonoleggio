@@ -41,19 +41,6 @@ export default function Header() {
   return (
     <>
       {/* Language Selector */}
-      <div className="fixed top-6 right-6 z-50">
-        <select 
-          id="langSelector" 
-          value={language}
-          onChange={handleLanguageChange}
-          className="bg-transparent text-sm font-medium px-2 py-1 border border-gray-700 focus:outline-none focus:border-gray-400 cursor-pointer"
-        >
-          <option value="it">IT</option>
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
-          <option value="de">DE</option>
-        </select>
-      </div>
 
       {/* Desktop Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">

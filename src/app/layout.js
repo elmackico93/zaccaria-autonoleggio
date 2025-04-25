@@ -31,10 +31,6 @@ export const metadata = {
   metadataBase: new URL('https://www.zaccariaautonoleggio.it'),
   alternates: {
     canonical: '/',
-    languages: {
-      'it-IT': '/',
-      'en-US': '/en',
-    },
   },
   openGraph: {
     title: 'Zaccaria NCC | Luxury Chauffeur Service',
