@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ensure local modules are transpiled
-  transpilePackages: [],
-
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
@@ -28,42 +25,14 @@ const nextConfig = {
   // Compress responses for improved performance
   compress: true,
   
-  // Updated experimental features for current Next.js version
+  // Advanced optimizations
   experimental: {
     // Enable modern optimization features
     optimizePackageImports: ['react-icons', 'lucide-react', 'date-fns'],
     // For better memory usage
     optimizeServerReact: true,
-  },
-  
-  // Enable bundle analyzer in analyze mode
-  webpack: (config, { isServer, dev, webpack }) => {
-    // Add bundle analyzer plugin in analyze mode
-    if (process.env.ANALYZE) {
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
-          openAnalyzer: true,
-        })
-      );
-    }
-    
-    // Add custom webpack optimizations
-    if (!dev) {
-      // Use deterministic chunk and module ids for better caching
-      config.optimization.moduleIds = 'deterministic';
-      
-      // Enable React optimization for production
-      config.plugins.push(
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('production'),
-        })
-      );
-    }
-    
-    return config;
+    // Use server actions (Next.js 14+ feature)
+    serverActions: true,
   },
   
   // Remove powered by header for security
@@ -72,11 +41,23 @@ const nextConfig = {
   // Set specific output options
   output: 'standalone',
   
-  // Enable source maps in production for better error tracking (optional)
-  productionBrowserSourceMaps: true,
-  
-  // Trailing slashes for URL consistency
-  trailingSlash: false,
+  // Add rewrites to support section pages and SEO pages
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // Handle section routes like /fleet
+        {
+          source: '/:section(services|fleet|tour|rental|about|testimonials|contact|offers)',
+          destination: '/section/:section'
+        },
+        // Handle SEO page routes
+        {
+          source: '/:slug(servizi-puglia|ncc-ostuni|ncc-bari|ncc-salento|transfer-aeroporto-brindisi|autonoleggio-con-conducente-alberobello|tour-autista-privato-puglia|transfer-bari-ostuni)',
+          destination: '/seo-pages/:slug'
+        }
+      ]
+    };
+  },
   
   // Configure headers for security
   async headers() {
@@ -100,24 +81,6 @@ const nextConfig = {
       },
     ];
   },
-  
-  // Add rewrites to support section pages and SEO pages
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Handle section routes like /fleet
-        {
-          source: '/:section(services|fleet|tour|rental|about|testimonials|contact|offers)',
-          destination: '/[section]'
-        },
-        // Handle SEO page routes
-        {
-          source: '/:slug(servizi-puglia|ncc-ostuni|ncc-bari|ncc-salento|transfer-aeroporto-brindisi|autonoleggio-con-conducente-alberobello|tour-autista-privato-puglia|transfer-bari-ostuni)',
-          destination: '/seo-pages/:slug'
-        }
-      ]
-    };
-  }
 };
 
 module.exports = nextConfig;

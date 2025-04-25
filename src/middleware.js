@@ -12,7 +12,7 @@ const VALID_SECTIONS = [
   'contact'
 ];
 
-// SEO page slugs that should be redirected to the seo-pages directory
+// SEO page slugs that should be handled by the seo-pages directory
 const SEO_SLUGS = [
   'servizi-puglia',
   'ncc-ostuni',
@@ -27,32 +27,20 @@ const SEO_SLUGS = [
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   
-  // Skip middleware for static assets and API routes
-  if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/images') ||
-    pathname.includes('.') // Files with extensions (like .jpg, .css, etc.)
-  ) {
-    return NextResponse.next();
-  }
-  
   // Check if this is a SEO page route
   if (SEO_SLUGS.some(slug => pathname === `/${slug}`)) {
-    // Rewrite to the actual page location but keep the URL in the browser intact
+    // IMPORTANT: Use rewrite instead of redirect to maintain the original URL
     const slug = pathname.slice(1); // Remove the leading slash
     return NextResponse.rewrite(new URL(`/seo-pages/${slug}`, request.url));
   }
   
-  // Check if URL is a direct section route
-  // Pattern: /section-name
+  // Check if URL is a direct section route (e.g., /contact, /services)
   if (pathname.startsWith('/') && pathname.split('/').length === 2) {
     const section = pathname.slice(1);
     
     if (VALID_SECTIONS.includes(section)) {
-      // If it's a valid section, rewrite to the app/[section]/page.js component
-      // This is crucial for dynamic routes to work properly
-      return NextResponse.rewrite(new URL(`/${section}`, request.url));
+      // Instead of redirecting, use rewrite to maintain the URL but serve the section page
+      return NextResponse.rewrite(new URL(`/section/${section}`, request.url));
     }
   }
   
@@ -63,6 +51,6 @@ export function middleware(request) {
 export const config = {
   matcher: [
     // Match all routes except static files, api routes, etc.
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon.ico|images|icons|api).*)',
   ],
 };
