@@ -7,6 +7,7 @@ import { trackPhoneClick } from '@/lib/animations';
 import useScrollEffect from '@/hooks/useScrollEffect';
 import useSectionRoute from '@/hooks/useSectionRoute';
 import EnhancedMobileMenu from "@/components/ui/EnhancedMobileMenu";
+import Logo from '@/components/ui/Logo';
 
 const MENU_ITEMS = [
   { id: 'services', label: 'Servizi' },
@@ -57,13 +58,10 @@ export default function Header() {
       {/* Desktop Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">
         <nav className="container mx-auto px-6 flex justify-between items-center">
-          <a href="/" className="text-2xl font-bold tracking-tight chrome-text-enhanced" onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            window.history.replaceState(null, '', '/');
-          }}>
-            ZACCARIA
-          </a>
+        <Link href="/" className="flex items-center">
+            {/* Use the Logo component instead of text */}
+            <Logo height={100} priority={true} />
+          </Link>
           
           <div className="hidden md:flex items-center space-x-12">
             {MENU_ITEMS.map(item => (
