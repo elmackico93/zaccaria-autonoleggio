@@ -12,11 +12,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com',
+        hostname: 'res.cloudinary.com'
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
   },
   
   // Optimize fonts
@@ -32,7 +32,6 @@ const nextConfig = {
     // For better memory usage
     optimizeServerReact: true,
     // Use server actions (Next.js 14+ feature)
-    serverActions: true,
   },
   
   // Remove powered by header for security
@@ -67,20 +66,20 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            value: 'nosniff'
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'DENY'
           },
           {
             key: 'X-XSS-Protection',
-            value: '1; mode=block',
+            value: '1; mode=block'
           },
-        ],
+        ]
       },
     ];
-  },
+  }
 };
 
 module.exports = nextConfig;
