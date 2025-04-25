@@ -1,19 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 /**
  * Custom hook to handle section-based navigation and active section tracking
  * 
  * This hook provides:
  * 1. Detection of the current active section based on scroll position
- * 2. Proper URL handling that maintains paths for direct section access and SEO pages
- * 3. Smooth scrolling to sections
+ * 2. History API integration to change the URL when scrolling between sections
+ * 3. Proper section navigation when directly accessing a section URL
  * 
  * @param {Object} options - Configuration options
  * @param {string[]} options.sections - Array of section IDs to track
- * @param {number} options.offset - Offset from the top of the section (default: 100)
+ * @param {number} options.offset - Offset from the top of the section to trigger activation (default: 100)
  * @param {boolean} options.updateUrl - Whether to update the URL as sections change (default: true)
  * @returns {Object} - { activeSection, scrollToSection }
  */
@@ -26,13 +26,7 @@ export default function useSectionRoute({
   const [isScrolling, setIsScrolling] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-
-  // Track if we're on a section page or an SEO page
-  const isSectionPage = sections.some(section => pathname === `/${section}`);
-  const isSeoPage = pathname.includes('/seo-pages/') || 
-                    (!pathname.startsWith('/_next') && 
-                     pathname !== '/' && 
-                     !sections.some(section => pathname === `/${section}`));
+  const searchParams = useSearchParams();
 
   // Function to scroll to a specific section
   const scrollToSection = (sectionId) => {
@@ -49,13 +43,15 @@ export default function useSectionRoute({
       behavior: 'smooth'
     });
     
-    // Update active section
+    // Update active section and URL
     setActiveSection(sectionId);
-    
-    // Update URL only if we're not on an SEO page
-    if (updateUrl && !isSeoPage) {
-      // Use router.push to properly update history
-      router.push(`/${sectionId}`);
+    if (updateUrl && typeof window !== 'undefined') {
+      // Use history API for cleaner URL updates without full navigation
+      window.history.replaceState(
+        { ...window.history.state, as: `/${sectionId}`, url: `/${sectionId}` },
+        '',
+        `/${sectionId}`
+      );
     }
     
     // Reset scrolling flag after animation completes
@@ -66,9 +62,6 @@ export default function useSectionRoute({
 
   // Handle initial section from URL on page load
   useEffect(() => {
-    // Skip if we're on an SEO page - don't interfere with those URLs
-    if (isSeoPage) return;
-    
     // Check if the URL has a hash
     const hash = window.location.hash.replace('#', '');
     if (hash && sections.includes(hash)) {
@@ -85,12 +78,11 @@ export default function useSectionRoute({
         }, 500);
       }
     }
-  }, [pathname, sections, isSeoPage]);
+  }, [pathname, sections]);
 
   // Track active section based on scroll position
   useEffect(() => {
-    // Skip if we're on an SEO page or still initializing
-    if (typeof window === 'undefined' || sections.length === 0 || isScrolling || isSeoPage) return;
+    if (typeof window === 'undefined' || sections.length === 0 || isScrolling) return;
 
     const handleScroll = () => {
       if (isScrolling) return;
@@ -143,11 +135,19 @@ export default function useSectionRoute({
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
         
-        // Update the URL using the router for proper history management
+        // Update the URL using history API
         if (updateUrl && currentSection) {
-          router.push(`/${currentSection}`, { scroll: false });
-        } else if (updateUrl && !currentSection && isSectionPage) {
-          router.push('/', { scroll: false });
+          window.history.replaceState(
+            { ...window.history.state, as: `/${currentSection}`, url: `/${currentSection}` },
+            '',
+            `/${currentSection}`
+          );
+        } else if (updateUrl && !currentSection && pathname !== '/') {
+          window.history.replaceState(
+            { ...window.history.state, as: '/', url: '/' },
+            '',
+            '/'
+          );
         }
       }
     };
@@ -161,7 +161,7 @@ export default function useSectionRoute({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [sections, activeSection, isScrolling, offset, updateUrl, pathname, router, isSeoPage, isSectionPage]);
+  }, [sections, activeSection, isScrolling, offset, updateUrl, pathname]);
 
   return {
     activeSection,

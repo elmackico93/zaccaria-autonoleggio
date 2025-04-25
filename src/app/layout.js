@@ -3,21 +3,6 @@ import { Montserrat } from 'next/font/google'
 import SchemaOrg from '@/components/SchemaOrg'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 
-// Try multiple import paths to handle different configurations
-let config;
-try {
-  // First try the path alias
-  config = require('@config');
-} catch (e) {
-  try {
-    // Then try the direct path
-    config = require('@/lib/config');
-  } catch (e2) {
-    // Fallback to relative path
-    config = require('../../config');
-  }
-}
-
 // Optimize font loading with display swap and preload
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -26,32 +11,24 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 })
 
-// Get metadata from configuration
-const businessName = config.business.name;
-const businessDescription = config.business.description;
-const metaTitle = config.seo.global.metaTitle;
-const metaDescription = config.seo.global.metaDescription;
-const keywords = config.seo.global.keywords.join(', ');
-const siteUrl = config.business.siteUrl;
-
 // Metadata for SEO optimization
 export const metadata = {
   title: {
-    default: metaTitle,
-    template: `%s | ${businessName}`
+    default: 'Zaccaria NCC | Premium Chauffeur Service',
+    template: '%s | Zaccaria NCC'
   },
-  description: metaDescription,
-  keywords,
-  authors: [{ name: businessName }],
-  creator: businessName,
-  publisher: businessName,
+  description: 'Servizio di noleggio con conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia e autonoleggio senza conducente. Prenota ora per un servizio di alta qualità.',
+  keywords: ['noleggio con conducente Ostuni', 'tour Puglia', 'autonoleggio', 'servizio NCC Brindisi', 'transfer aeroporto Brindisi'],
+  authors: [{ name: 'Zaccaria NCC' }],
+  creator: 'Zaccaria NCC',
+  publisher: 'Zaccaria NCC',
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  alternateNames: [config.business.legalName],
-  metadataBase: new URL(siteUrl),
+  alternateNames: ["Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto"],
+  metadataBase: new URL('https://www.zaccariaautonoleggio.it'),
   alternates: {
     canonical: '/',
     languages: {
@@ -60,10 +37,10 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: metaTitle,
-    description: businessDescription,
-    url: siteUrl,
-    siteName: businessName,
+    title: 'Zaccaria NCC | Luxury Chauffeur Service',
+    description: 'Il servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso. Transfer, tour guidati e autonoleggio.',
+    url: 'https://www.zaccariaautonoleggio.it',
+    siteName: 'Zaccaria NCC',
     locale: 'it_IT',
     type: 'website',
     images: [
@@ -71,14 +48,14 @@ export const metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: `${businessName} Premium Chauffeur Service`,
+        alt: 'Zaccaria NCC Premium Chauffeur Service',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: metaTitle,
-    description: businessDescription,
+    title: 'Zaccaria NCC | Luxury Chauffeur Service',
+    description: 'Il servizio di noleggio con conducente che ridefinisce la qualità nel trasporto di lusso. Transfer, tour guidati e autonoleggio.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -110,9 +87,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  // Get Google Analytics ID from config
-  const gaId = config.business.googleAnalyticsId;
-  
   return (
     <html lang="it" className={`scroll-smooth ${montserrat.variable}`}>
       <head>
@@ -146,24 +120,16 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#0A0A0A" />
         <meta name="msapplication-TileImage" content="/images/favicons/favicon-144.png" />
         <meta name="theme-color" content="#0A0A0A" />
-        
-        {/* Hreflang tags */}
-        <link rel="alternate" href={siteUrl} hrefLang="it-IT" />
-        <link rel="alternate" href={`${siteUrl}/en`} hrefLang="en-US" />
-        <link rel="alternate" href={siteUrl} hrefLang="x-default" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href={siteUrl} />
       </head>
       <body className={montserrat.className}>
         <SchemaOrg />
-        <GoogleAnalytics GA_MEASUREMENT_ID={gaId} />
+        <GoogleAnalytics />
         {children}
         
         {/* Add noscript tag for GTM */}
         <noscript>
           <iframe 
-            src={`https://www.googletagmanager.com/ns.html?id=${gaId}`}
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
             height="0" 
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }} 

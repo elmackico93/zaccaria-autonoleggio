@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/animations';
 import useScrollEffect from '@/hooks/useScrollEffect';
 import useSectionRoute from '@/hooks/useSectionRoute';
@@ -19,19 +19,12 @@ const MENU_ITEMS = [
 
 export default function Header() {
   const scrolled = useScrollEffect();
-  const router = useRouter();
-  const pathname = usePathname();
   const [language, setLanguage] = useState('it');
-  
-  // Check if we're on an SEO page
-  const isSeoPage = pathname.includes('/seo-pages/') || 
-                   (pathname !== '/' && 
-                    !MENU_ITEMS.some(item => pathname === `/${item.id}`));
   
   // Use our custom hook for section-based navigation
   const { activeSection, scrollToSection } = useSectionRoute({ 
     sections: MENU_ITEMS.map(item => item.id),
-    updateUrl: !isSeoPage, // Only update URL if we're not on an SEO page
+    updateUrl: true
   });
 
   const handleLanguageChange = (e) => {
@@ -41,13 +34,7 @@ export default function Header() {
   
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
-    
-    // If we're on an SEO page, navigate back to home first then scroll
-    if (isSeoPage) {
-      router.push(`/#${sectionId}`);
-    } else {
-      scrollToSection(sectionId);
-    }
+    scrollToSection(sectionId);
   };
 
   return (
@@ -70,18 +57,11 @@ export default function Header() {
       {/* Desktop Navigation */}
       <header className={`metal-navbar py-6 ${scrolled ? 'nav-scrolled' : ''}`} id="navbar">
         <nav className="container mx-auto px-6 flex justify-between items-center">
-          <a 
-            href="/" 
-            className="text-2xl font-bold tracking-tight chrome-text-enhanced" 
-            onClick={(e) => {
-              e.preventDefault();
-              if (isSeoPage) {
-                router.push('/');
-              } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-          >
+          <a href="/" className="text-2xl font-bold tracking-tight chrome-text-enhanced" onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.history.replaceState(null, '', '/');
+          }}>
             ZACCARIA
           </a>
           

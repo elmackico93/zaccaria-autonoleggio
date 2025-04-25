@@ -12,12 +12,10 @@ const VALID_SECTIONS = [
   'contact'
 ];
 
-// SEO page slugs that should be handled by the seo-pages directory
+// SEO page slugs that should be redirected to the seo-pages directory
 const SEO_SLUGS = [
   'servizi-puglia',
   'ncc-ostuni',
-  'ncc-bari',
-  'ncc-salento',
   'transfer-aeroporto-brindisi',
   'autonoleggio-con-conducente-alberobello',
   'tour-autista-privato-puglia',
@@ -29,18 +27,23 @@ export function middleware(request) {
   
   // Check if this is a SEO page route
   if (SEO_SLUGS.some(slug => pathname === `/${slug}`)) {
-    // IMPORTANT: Use rewrite instead of redirect to maintain the original URL
+    // Rewrite to the actual page location
     const slug = pathname.slice(1); // Remove the leading slash
     return NextResponse.rewrite(new URL(`/seo-pages/${slug}`, request.url));
   }
   
-  // Check if URL is a direct section route (e.g., /contact, /services)
+  // Check if URL is a direct section route
+  // Pattern: /section-name
   if (pathname.startsWith('/') && pathname.split('/').length === 2) {
     const section = pathname.slice(1);
     
     if (VALID_SECTIONS.includes(section)) {
-      // Instead of redirecting, use rewrite to maintain the URL but serve the section page
-      return NextResponse.rewrite(new URL(`/section/${section}`, request.url));
+      // This is a valid section, but we should redirect to the home page
+      // with the hash for better static generation and cache sharing
+      const url = request.nextUrl.clone();
+      url.pathname = '/';
+      url.hash = section;
+      return NextResponse.redirect(url);
     }
   }
   
