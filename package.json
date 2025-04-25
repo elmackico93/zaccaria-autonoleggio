@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "update-hero": "node -r @/register src/scripts/modify-hero.js"
+    "update-hero": "node -r @/register src/scripts/modify-hero.js",
+    "generate-css": "node config/generate-css-variables.js"
   },
   "dependencies": {
     "@vercel/og": "^0.5.20",

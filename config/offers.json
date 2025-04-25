@@ -1,0 +1,59 @@
+{
+  "offers": [
+    {
+      "id": "summer-2025",
+      "title": "Offerta Estate 2025",
+      "titleEn": "Summer 2025 Offer",
+      "description": "Transfer aeroportuale + tour guidato di 4 ore. Scopri le spiagge più belle del Salento con autista dedicato e guida locale.",
+      "descriptionEn": "Airport transfer + 4-hour guided tour. Discover the most beautiful beaches of Salento with a dedicated driver and local guide.",
+      "image": "/images/offers/summer-offer.jpg",
+      "price": 240,
+      "discountedPrice": 192,
+      "discount": "20%",
+      "duration": "4 ore",
+      "durationEn": "4 hours",
+      "validUntil": "2025-09-30",
+      "tags": ["Estate", "Spiagge", "Tour Guidato"],
+      "tagsEn": ["Summer", "Beaches", "Guided Tour"],
+      "cta": "Prenota Ora a €192",
+      "ctaEn": "Book Now for €192",
+      "popular": true
+    },
+    {
+      "id": "valle-ditria",
+      "title": "Tour Valle d'Itria",
+      "titleEn": "Itria Valley Tour",
+      "description": "Visita guidata dei borghi bianchi: Ostuni, Cisternino, Locorotondo e Alberobello. Degustazione di prodotti tipici inclusa.",
+      "descriptionEn": "Guided tour of the white villages: Ostuni, Cisternino, Locorotondo and Alberobello. Tasting of typical products included.",
+      "image": "/images/offers/valle-itria.jpg",
+      "price": 320,
+      "discountedPrice": 272,
+      "discount": "15%",
+      "duration": "8 ore",
+      "durationEn": "8 hours",
+      "validUntil": "2025-12-31",
+      "tags": ["Borghi", "Cultura", "Enogastronomia"],
+      "tagsEn": ["Villages", "Culture", "Food & Wine"],
+      "cta": "Scopri il Tour",
+      "ctaEn": "Discover the Tour"
+    },
+    {
+      "id": "business-transfer",
+      "title": "Business Transfer",
+      "titleEn": "Business Transfer",
+      "description": "Servizio premium Mercedes Class E per trasferimenti business. Wi-Fi a bordo, acqua minerale e quotidiani a disposizione.",
+      "descriptionEn": "Premium Mercedes Class E service for business transfers. Wi-Fi on board, mineral water and newspapers available.",
+      "image": "/images/offers/business-transfer.jpg",
+      "price": 180,
+      "discountedPrice": 162,
+      "discount": "10%",
+      "duration": "Giornaliero",
+      "durationEn": "Daily",
+      "validUntil": "2025-12-31",
+      "tags": ["Business", "Mercedes", "Premium"],
+      "tagsEn": ["Business", "Mercedes", "Premium"],
+      "cta": "Prenota il Trasferimento",
+      "ctaEn": "Book the Transfer"
+    }
+  ]
+}

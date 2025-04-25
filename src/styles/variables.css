@@ -1,0 +1,30 @@
+:root {
+  /* Monochromatic palette with metallic accents */
+  --white: #FFFFFF;
+  --white-smoke: #F5F5F5;
+  --light-silver: #D9D9D9;
+  --silver: #C0C0C0;
+  --silver-metallic: #AAA9AD;
+  --dark-silver: #717171;
+  --gunmetal: #2C3539;
+  --charcoal: #222222;
+  --black: #0A0A0A;
+
+  /* Metallic accents */
+  --chrome: linear-gradient(145deg, #F5F5F5, #C0C0C0, #F5F5F5);
+  --steel: linear-gradient(145deg, #43464B, #717171, #43464B);
+  --chrome-glow: 0 0 15px rgba(255, 255, 255, 0.3);
+  --button-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --button-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.4);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+  /* Highlight color for call button */
+  --highlight: #c0c0c0;
+  --highlight-hover: #ffffff;
+
+  /* Transition speeds */
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}

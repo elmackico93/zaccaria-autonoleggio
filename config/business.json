@@ -1,0 +1,34 @@
+{
+  "name": "Zaccaria NCC",
+  "legalName": "Autonoleggio Zaccaria Ostuni - Rent a Car - Noleggio Auto",
+  "description": "Servizio di noleggio con conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia e autonoleggio senza conducente.",
+  "foundingYear": 2010,
+  "contact": {
+    "phone": "+39-331 346 7527",
+    "phoneFormatted": "+39 331 346 7527",
+    "email": "info@zaccariaautonoleggio.it",
+    "whatsapp": "+393313467527"
+  },
+  "address": {
+    "street": "Via Armando Diaz, 91",
+    "city": "Ostuni",
+    "province": "BR",
+    "postalCode": "72017",
+    "country": "IT",
+    "googleMapsUrl": "https://www.google.com/maps/place/TAXI+-+NCC+OSTUNI+Rent+a+Car/@40.7290,17.5742,17z"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/zaccariancc",
+    "instagram": "https://www.instagram.com/zaccariancc"
+  },
+  "vatNumber": "01234567890",
+  "businessHours": "24/7",
+  "languages": ["it", "en", "fr", "de"],
+  "defaultLanguage": "it",
+  "siteUrl": "https://www.zaccariaautonoleggio.it",
+  "googleAnalyticsId": "GTM-XXXXXX",
+  "ratings": {
+    "average": 4.8,
+    "count": 127
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "vehicles": [
+    {
+      "id": "mercedes-s-class",
+      "name": "Mercedes S-Class",
+      "nameEn": "Mercedes S-Class",
+      "description": "Berlina executive • 4 posti • Wi-Fi",
+      "descriptionEn": "Executive sedan • 4 seats • Wi-Fi",
+      "features": ["Executive Sedan", "4 Seats", "Wi-Fi", "Leather Interior", "Climate Control"],
+      "image": "/images/mercedes-s-class.jpg",
+      "category": "luxury"
+    },
+    {
+      "id": "mercedes-e-class",
+      "name": "Mercedes E-Class",
+      "nameEn": "Mercedes E-Class",
+      "description": "Berlina business • 4 posti • Comfort",
+      "descriptionEn": "Business sedan • 4 seats • Comfort",
+      "features": ["Business Sedan", "4 Seats", "Premium Audio", "Leather Interior", "Climate Control"],
+      "image": "/images/mercedes-e-class.jpg",
+      "category": "business"
+    },
+    {
+      "id": "mercedes-v-class",
+      "name": "Mercedes V-Class",
+      "nameEn": "Mercedes V-Class",
+      "description": "Van premium • 7 posti • Extra spazio",
+      "descriptionEn": "Premium van • 7 seats • Extra space",
+      "features": ["Premium Van", "7 Seats", "Extra Luggage Space", "Leather Interior", "Climate Control"],
+      "image": "/images/mercedes-v-class.jpg",
+      "category": "van"
+    }
+  ],
+  "rentalVehicles": [
+    {
+      "id": "fiat-500x",
+      "name": "Fiat 500X",
+      "nameEn": "Fiat 500X",
+      "description": "Crossover • 5 posti • Climatizzato",
+      "descriptionEn": "Crossover • 5 seats • Air conditioned",
+      "features": ["Crossover", "5 Seats", "GPS Navigation", "Air Conditioning", "Bluetooth"],
+      "image": "/images/fiat-500-x.jpeg",
+      "category": "crossover"
+    },
+    {
+      "id": "citroen-c3",
+      "name": "Citroen C3",
+      "nameEn": "Citroen C3",
+      "description": "Compatta • 5 posti • Economica",
+      "descriptionEn": "Compact • 5 seats • Economical",
+      "features": ["Compact", "5 Seats", "Air Conditioning", "Bluetooth", "Fuel Efficient"],
+      "image": "/images/citroen-c3.jpeg",
+      "category": "compact"
+    },
+    {
+      "id": "fiat-panda",
+      "name": "Fiat Panda",
+      "nameEn": "Fiat Panda",
+      "description": "City car • 4 posti • Pratica",
+      "descriptionEn": "City car • 4 seats • Practical",
+      "features": ["City Car", "4 Seats", "Air Conditioning", "Bluetooth", "Fuel Efficient"],
+      "image": "/images/fiat-panda.jpeg",
+      "category": "city"
+    }
+  ]
+}

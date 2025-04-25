@@ -1,0 +1,34 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Marco Rossi",
+      "company": "Tech Solutions",
+      "position": "CEO",
+      "text": "Un servizio eccezionale in ogni dettaglio. La professionalità e la puntualità sono la loro firma distintiva. Non potrei immaginare un servizio migliore.",
+      "textEn": "An exceptional service in every detail. Professionalism and punctuality are their hallmark. I couldn't imagine a better service.",
+      "image": "/images/client-1.jpg",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Laura Bianchi",
+      "company": "Fashion Design",
+      "position": "Marketing Director",
+      "text": "Ho utilizzato il servizio per un tour della Valle d'Itria. L'autista era molto preparato e ci ha fatto scoprire luoghi meravigliosi. Un'esperienza fantastica!",
+      "textEn": "I used the service for a tour of the Itria Valley. The driver was very knowledgeable and showed us wonderful places. A fantastic experience!",
+      "image": "/images/client-2.jpg",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Giovanni Verdi",
+      "company": "Financial Group",
+      "position": "CFO",
+      "text": "Il transfer aeroportuale è stato impeccabile. Puntualità, cortesia e un'auto di lusso che ha reso il viaggio un piacere. Li raccomando vivamente.",
+      "textEn": "The airport transfer was impeccable. Punctuality, courtesy and a luxury car that made the journey a pleasure. I highly recommend them.",
+      "image": "/images/client-3.jpg",
+      "rating": 5
+    }
+  ]
+}

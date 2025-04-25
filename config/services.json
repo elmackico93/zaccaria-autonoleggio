@@ -1,0 +1,121 @@
+{
+  "sections": [
+    {
+      "id": "services",
+      "title": "I Nostri Servizi",
+      "titleEn": "Our Services",
+      "shortTitle": "Servizi",
+      "shortTitleEn": "Services",
+      "description": "Un'esperienza di trasporto su misura per ogni esigenza, dove professionalità e comfort si incontrano.",
+      "descriptionEn": "A tailored transportation experience for every need, where professionalism and comfort meet.",
+      "metaTitle": "I Nostri Servizi | Zaccaria NCC",
+      "metaDescription": "Servizi di noleggio con conducente, transfer aeroportuali, servizio Business e VIP a Ostuni, Brindisi e tutta la Puglia."
+    },
+    {
+      "id": "fleet",
+      "title": "La Nostra Flotta",
+      "titleEn": "Our Fleet",
+      "shortTitle": "Flotta",
+      "shortTitleEn": "Fleet",
+      "description": "Veicoli Mercedes selezionati per offrire il massimo comfort e stile. Una flotta all'altezza delle aspettative più elevate.",
+      "descriptionEn": "Selected Mercedes vehicles offering maximum comfort and style. A fleet that meets the highest expectations.",
+      "metaTitle": "La Nostra Flotta | Zaccaria NCC",
+      "metaDescription": "Scopri la nostra flotta di veicoli Mercedes: comfort, eleganza e servizio impeccabile per ogni tuo spostamento in Puglia."
+    },
+    {
+      "id": "tour",
+      "title": "Tour Guidati",
+      "titleEn": "Guided Tours",
+      "shortTitle": "Tour",
+      "shortTitleEn": "Tours",
+      "description": "Scopri le meraviglie della Puglia con i nostri tour esclusivi, pensati per offrirti un'esperienza autentica e indimenticabile.",
+      "descriptionEn": "Discover the wonders of Puglia with our exclusive tours, designed to offer you an authentic and unforgettable experience.",
+      "metaTitle": "Tour Guidati in Puglia | Zaccaria NCC",
+      "metaDescription": "Esplora la Puglia con i nostri tour guidati: borghi bianchi, tour enogastronomici e visite alle città d'arte."
+    },
+    {
+      "id": "rental",
+      "title": "Autonoleggio",
+      "titleEn": "Car Rental",
+      "shortTitle": "Autonoleggio",
+      "shortTitleEn": "Car Rental",
+      "description": "Noleggia un'auto senza conducente per esplorare la Puglia in libertà. Veicoli moderni e affidabili per brevi periodi.",
+      "descriptionEn": "Rent a car without a driver to explore Puglia freely. Modern and reliable vehicles for short periods.",
+      "metaTitle": "Autonoleggio | Zaccaria NCC",
+      "metaDescription": "Noleggia un'auto senza conducente per esplorare la Puglia in libertà. Veicoli moderni e affidabili per brevi periodi."
+    },
+    {
+      "id": "about",
+      "title": "Chi Siamo",
+      "titleEn": "About Us",
+      "shortTitle": "Chi Siamo",
+      "shortTitleEn": "About",
+      "description": "Da oltre un decennio, Zaccaria NCC rappresenta l'eccellenza nel settore del noleggio con conducente.",
+      "descriptionEn": "For over a decade, Zaccaria NCC has represented excellence in the chauffeur service sector.",
+      "metaTitle": "Chi Siamo | Zaccaria NCC",
+      "metaDescription": "Scopri Zaccaria NCC: da oltre un decennio, rappresentiamo l'eccellenza nel settore del noleggio con conducente in Puglia."
+    },
+    {
+      "id": "testimonials",
+      "title": "Cosa dicono i nostri clienti",
+      "titleEn": "What our clients say",
+      "shortTitle": "Testimonial",
+      "shortTitleEn": "Testimonials",
+      "description": "Le opinioni dei nostri clienti testimoniano la qualità del nostro servizio e la nostra dedizione alla soddisfazione del cliente.",
+      "descriptionEn": "Our customers' opinions testify to the quality of our service and our dedication to customer satisfaction.",
+      "metaTitle": "Testimonial | Zaccaria NCC",
+      "metaDescription": "Scopri cosa dicono i nostri clienti sul servizio Zaccaria NCC: qualità, professionalità e attenzione ai dettagli."
+    },
+    {
+      "id": "offers",
+      "title": "Offerte Speciali",
+      "titleEn": "Special Offers",
+      "shortTitle": "Offerte",
+      "shortTitleEn": "Offers",
+      "description": "Soluzioni esclusive per esplorare la Puglia con stile e comfort. Approfitta dei nostri pacchetti a prezzo ridotto.",
+      "descriptionEn": "Exclusive solutions to explore Puglia with style and comfort. Take advantage of our reduced price packages.",
+      "metaTitle": "Offerte Speciali | Zaccaria NCC",
+      "metaDescription": "Scopri le nostre offerte esclusive: tour guidati, transfer aeroportuali e pacchetti business con sconti speciali e servizi premium."
+    },
+    {
+      "id": "contact",
+      "title": "Contatti",
+      "titleEn": "Contact",
+      "shortTitle": "Contatti",
+      "shortTitleEn": "Contact",
+      "description": "Siamo a tua disposizione per qualsiasi richiesta. Contattaci per un preventivo personalizzato.",
+      "descriptionEn": "We are at your disposal for any request. Contact us for a personalized quote.",
+      "metaTitle": "Contatti | Zaccaria NCC",
+      "metaDescription": "Contattaci per prenotazioni, preventivi o informazioni sui nostri servizi di noleggio con conducente e tour in Puglia."
+    }
+  ],
+  "serviceItems": [
+    {
+      "id": "taxi-ncc",
+      "icon": "car",
+      "number": "01",
+      "title": "Taxi NCC Mercedes",
+      "titleEn": "Mercedes Chauffeur Service",
+      "description": "Servizio premium di trasporto con auto e furgonati Mercedes. Transfer aeroportuali, viaggi business e trasporto privato con autisti professionisti.",
+      "descriptionEn": "Premium transportation service with Mercedes cars and vans. Airport transfers, business trips and private transportation with professional drivers."
+    },
+    {
+      "id": "tour-guidati",
+      "icon": "map-marker",
+      "number": "02",
+      "title": "Tour Guidati in Puglia",
+      "titleEn": "Guided Tours in Puglia",
+      "description": "Scopri le migliori destinazioni della Puglia con i nostri tour personalizzati. Visite culturali, enogastronomiche e naturalistiche con guide esperte.",
+      "descriptionEn": "Discover the best destinations in Puglia with our personalized tours. Cultural, food and wine, and naturalistic visits with expert guides."
+    },
+    {
+      "id": "autonoleggio",
+      "icon": "car-side",
+      "number": "03",
+      "title": "Autonoleggio",
+      "titleEn": "Car Rental",
+      "description": "Noleggio auto a breve termine senza conducente. Modelli Citroen C3, Fiat Panda e 500X disponibili per il tuo soggiorno in Puglia, con tariffe competitive.",
+      "descriptionEn": "Short-term car rental without driver. Citroen C3, Fiat Panda and 500X models available for your stay in Puglia, with competitive rates."
+    }
+  ]
+}

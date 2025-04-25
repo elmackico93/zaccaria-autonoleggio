@@ -1,0 +1,124 @@
+{
+  "global": {
+    "keywords": [
+      "noleggio con conducente Ostuni",
+      "tour Puglia", 
+      "autonoleggio", 
+      "servizio NCC Brindisi", 
+      "transfer aeroporto Brindisi"
+    ],
+    "metaTitle": "Zaccaria NCC | Premium Chauffeur Service",
+    "metaDescription": "Servizio di noleggio con conducente a Ostuni. Transfer con Mercedes, tour guidati in Puglia e autonoleggio senza conducente. Prenota ora per un servizio di alta qualità."
+  },
+  "seoPages": [
+    {
+      "slug": "servizi-puglia",
+      "title": "Servizi NCC in Puglia - Transfer, Tour, Business & Luxury",
+      "description": "Tutti i servizi di noleggio con conducente in Puglia: transfer aeroportuali, tour guidati, servizi business, cerimonie e trasporto di lusso."
+    },
+    {
+      "slug": "ncc-ostuni",
+      "title": "NCC Ostuni - Servizio con Autista Privato",
+      "description": "Servizio Premium di Noleggio Con Conducente a Ostuni. Transfer da/per aeroporti, tour guidati e servizio taxi con autisti professionisti."
+    },
+    {
+      "slug": "transfer-aeroporto-brindisi",
+      "title": "Transfer Aeroporto Brindisi - Servizio Navetta Premium",
+      "description": "Servizio di Transfer da/per l'Aeroporto di Brindisi. Auto Mercedes di lusso con autista privato. Prenota ora!"
+    },
+    {
+      "slug": "autonoleggio-con-conducente-alberobello",
+      "title": "Autonoleggio Con Conducente Alberobello - Servizio NCC",
+      "description": "Servizio di Autonoleggio Con Conducente ad Alberobello. Visita i Trulli con autista privato e auto di lusso."
+    },
+    {
+      "slug": "tour-autista-privato-puglia",
+      "title": "Tour Con Autista Privato in Puglia - Escursioni Personalizzate",
+      "description": "Tour esclusivi in Puglia con autista privato. Visita Valle d'Itria, Salento e costa pugliese con comfort e stile."
+    },
+    {
+      "slug": "transfer-bari-ostuni",
+      "title": "Transfer Bari-Ostuni - Servizio Navetta Diretto",
+      "description": "Servizio di Transfer diretto da Bari a Ostuni. Transfer da aeroporto e stazione di Bari verso Ostuni con autista privato."
+    },
+    {
+      "slug": "ncc-bari",
+      "title": "NCC Bari - Servizio con Autista Privato e Transfer Aeroporto",
+      "description": "Servizio Premium di Noleggio Con Conducente a Bari e provincia. Transfer aeroporto Bari Palese, tour della città e servizio business con autisti professionisti."
+    },
+    {
+      "slug": "ncc-salento",
+      "title": "NCC Salento - Servizio con Autista Privato",
+      "description": "Servizio Premium di Noleggio Con Conducente nel Salento. Transfer, tour personalizzati e servizio business con autisti professionisti."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ostuni",
+      "province": "Brindisi",
+      "region": "Puglia",
+      "description": "La Città Bianca, famosa per il suo centro storico completamente dipinto di calce bianca.",
+      "highlights": ["Centro Storico", "Cattedrale", "Mura Aragonesi"]
+    },
+    {
+      "name": "Brindisi",
+      "province": "Brindisi",
+      "region": "Puglia",
+      "description": "Importante porto del Sud Italia e punto di partenza per le rotte verso la Grecia.",
+      "highlights": ["Porto", "Lungomare", "Colonne Romane"]
+    },
+    {
+      "name": "Bari",
+      "province": "Bari",
+      "region": "Puglia",
+      "description": "Capoluogo della Puglia, con il suo affascinante centro storico e il lungomare.",
+      "highlights": ["Bari Vecchia", "Basilica di San Nicola", "Lungomare"]
+    },
+    {
+      "name": "Alberobello",
+      "province": "Bari",
+      "region": "Puglia",
+      "description": "Famosa per i suoi caratteristici trulli, patrimonio dell'UNESCO.",
+      "highlights": ["Trulli", "Rione Monti", "Museo del Territorio"]
+    },
+    {
+      "name": "Lecce",
+      "province": "Lecce",
+      "region": "Puglia",
+      "description": "Conosciuta come la 'Firenze del Sud' per il suo straordinario patrimonio barocco.",
+      "highlights": ["Centro Storico", "Basilica di Santa Croce", "Anfiteatro Romano"]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Cosa significa NCC?",
+      "answer": "NCC significa Noleggio Con Conducente, un servizio di trasporto privato con autista professionale che offre un'esperienza di viaggio personalizzata e di alta qualità, diversa dal comune servizio taxi.",
+      "category": "general"
+    },
+    {
+      "question": "Come posso prenotare un servizio NCC?",
+      "answer": "Puoi prenotare il nostro servizio NCC chiamando il numero +39-331 346 7527, inviando un'email a info@zaccariaautonoleggio.it, o compilando il modulo di richiesta preventivo sul nostro sito.",
+      "category": "booking"
+    },
+    {
+      "question": "Quali tipi di veicoli offrite per il servizio NCC?",
+      "answer": "La nostra flotta comprende esclusivamente veicoli Mercedes-Benz di alta gamma: Mercedes Classe E, Mercedes Classe S per servizi executive, e Mercedes Classe V per gruppi fino a 7 passeggeri.",
+      "category": "fleet"
+    },
+    {
+      "question": "È necessario prenotare con anticipo?",
+      "answer": "Consigliamo di prenotare con almeno 24-48 ore di anticipo per garantire la disponibilità, soprattutto in alta stagione o per servizi speciali, ma siamo disponibili anche per richieste last-minute in base alla disponibilità.",
+      "category": "booking"
+    },
+    {
+      "question": "Quali sono i metodi di pagamento accettati?",
+      "answer": "Accettiamo pagamenti in contanti, carte di credito/debito (Visa, Mastercard, American Express), bonifici bancari e pagamenti elettronici (PayPal).",
+      "category": "payment"
+    },
+    {
+      "question": "I tour sono personalizzabili in base ai nostri interessi?",
+      "answer": "Assolutamente sì! Ogni tour può essere completamente personalizzato in base ai vostri interessi: enogastronomia, storia, arte, natura o shopping. Contattateci per creare insieme l'itinerario perfetto.",
+      "category": "tours"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "tours": [
+    {
+      "id": "borghi-bianchi",
+      "icon": "building",
+      "title": "Tour dei Borghi Bianchi",
+      "titleEn": "White Villages Tour",
+      "description": "Visita i caratteristici borghi bianchi della Valle d'Itria: Ostuni, Locorotondo, Cisternino e Alberobello con i suoi famosi trulli.",
+      "descriptionEn": "Visit the characteristic white villages of the Itria Valley: Ostuni, Locorotondo, Cisternino and Alberobello with its famous trulli.",
+      "duration": "8 ore",
+      "durationEn": "8 hours",
+      "price": 320,
+      "discountedPrice": 272,
+      "discount": "15%",
+      "locations": ["Ostuni", "Locorotondo", "Cisternino", "Alberobello"],
+      "image": "/images/tour-borghi-bianchi.jpg",
+      "popular": true
+    },
+    {
+      "id": "enogastronomico",
+      "icon": "utensils",
+      "title": "Tour Enogastronomico",
+      "titleEn": "Food and Wine Tour",
+      "description": "Esperienza sensoriale tra le eccellenze enogastronomiche pugliesi: frantoi, cantine vinicole e masserie con degustazioni di prodotti tipici.",
+      "descriptionEn": "Sensory experience among Apulian food and wine excellences: oil mills, wineries and farmhouses with tastings of typical products.",
+      "duration": "6 ore",
+      "durationEn": "6 hours",
+      "price": 280,
+      "discountedPrice": 238,
+      "discount": "15%",
+      "locations": ["Masserie", "Frantoi", "Cantine vinicole"],
+      "image": "/images/tour-enogastronomico.jpg"
+    },
+    {
+      "id": "citta-arte",
+      "icon": "landmark",
+      "title": "Tour delle Città d'Arte",
+      "titleEn": "Art Cities Tour",
+      "description": "Viaggio culturale nelle città storiche della Puglia: Lecce con il suo barocco, Bari vecchia, Matera e i suoi Sassi (Basilicata).",
+      "descriptionEn": "Cultural journey in the historical cities of Puglia: Lecce with its baroque, old Bari, Matera and its Sassi (Basilicata).",
+      "duration": "10 ore",
+      "durationEn": "10 hours",
+      "price": 380,
+      "discountedPrice": 323,
+      "discount": "15%",
+      "locations": ["Lecce", "Bari", "Matera"],
+      "image": "/images/tour-citta-arte.jpg"
+    }
+  ]
+}

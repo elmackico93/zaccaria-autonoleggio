@@ -1,0 +1,43 @@
+{
+  "images": {
+    "logo": "/images/logo",
+    "favicons": "/images/favicons",
+    "fleet": "/images/fleet",
+    "tour": "/images/tour",
+    "rental": "/images/rental",
+    "offers": "/images/offers",
+    "testimonials": "/images/testimonials",
+    "hero": "/images/hero",
+    "backgrounds": "/images/backgrounds"
+  },
+  "assets": {
+    "fonts": "/fonts",
+    "videos": "/videos",
+    "documents": "/documents"
+  },
+  "api": {
+    "placeholder": "/api/generate-placeholder",
+    "contact": "/api/contact",
+    "booking": "/api/booking"
+  },
+  "sections": [
+    "/services",
+    "/fleet",
+    "/tour",
+    "/rental",
+    "/offers",
+    "/about",
+    "/testimonials",
+    "/contact"
+  ],
+  "seoPages": [
+    "/servizi-puglia",
+    "/ncc-ostuni",
+    "/ncc-bari",
+    "/ncc-salento",
+    "/transfer-aeroporto-brindisi",
+    "/autonoleggio-con-conducente-alberobello",
+    "/tour-autista-privato-puglia",
+    "/transfer-bari-ostuni"
+  ]
+}

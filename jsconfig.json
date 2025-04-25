@@ -8,7 +8,9 @@
       "@styles/*": ["./src/styles/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@context/*": ["./src/context/*"],
-      "@public/*": ["./public/*"]
+      "@public/*": ["./public/*"],
+      "@config/*": ["./config/*"],
+      "@config": ["./config"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

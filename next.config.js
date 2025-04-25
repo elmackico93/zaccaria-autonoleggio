@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Ensure local modules are transpiled
+  transpilePackages: [],
+
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
