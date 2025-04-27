@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { createMetadata } from '@/lib/utils';
 import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import FixedCallButton from '@/components/ui/FixedCallButton';
 
 // Force static generation
@@ -354,3 +353,4 @@ export default function PageWrapper() {
     </>
   );
 }
+
