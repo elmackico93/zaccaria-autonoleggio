@@ -1,0 +1,35 @@
+{
+  "name": "zaccaria-autonoleggio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate:locations": "node src/scripts/generate-puglia-locations.js"
+  },
+  "dependencies": {
+    "@next/font": "^13.4.4",
+    "framer-motion": "^10.12.16",
+    "next": "13.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scroll": "^1.8.9",
+    "sharp": "^0.32.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-scroll": "^1.8.7",
+    "autoprefixer": "^10.4.14",
+    "chalk": "^5.2.0",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "^13.4.4",
+    "nanospinner": "^1.1.0",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.1.3"
+  }
+}
