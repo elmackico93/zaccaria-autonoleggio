@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCC Taxi Puglia | Servizio Premium di Trasporto con Conducente</title>
+    <meta name="description" content="Servizio premium di noleggio con conducente in Puglia. Transfer da/per aeroporti, tour personalizzati, servizi business con massima eleganza e professionalità.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ====== BASE STYLES ====== */
+        :root {
+            /* Premium color palette */
+            --black: #0a0a0a;
+            --deep-black: #000000;
+            --charcoal: #141414;
+            --dark-gray: #1e1e1e;
+            --medium-gray: #333333;
+            --gray: #555555;
+            --silver: #999999;
+            --light-silver: #cccccc;
+            --white-smoke: #f5f5f5;
+            --white: #ffffff;
+            
+            /* Accent colors */
+            --accent: #93A0AD;
+            --accent-dark: #728091;
+            --accent-light: #B4C0CD;
+            
+            /* Metallic accents */
+            --platinum: linear-gradient(145deg, #e6e6e6, #cccccc);
+            --silver-gradient: linear-gradient(145deg, #b3b3b3, #999999);
+            --gunmetal: linear-gradient(145deg, #2c3539, #1a1f22);
+            --dark-chrome: linear-gradient(145deg, #333333, #1a1a1a);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Radiuses */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+            
+            /* Layout */
+            --header-height: 90px;
+            --mobile-header-height: 70px;
+            --container-width: 1280px;
+            --section-spacing: 120px;
+            --mobile-section-spacing: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ====== TYPOGRAPHY ====== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            margin-bottom: 0.75em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        h4 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        a:hover {
+            color: var(--light-silver);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--silver-gradient);
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--white), var(--silver), var(--white));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .caption-text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .large-text {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--light-silver);
+        }
+
+        .text-light {
+            color: var(--light-silver);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        /* ====== LAYOUT ====== */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: var(--section-spacing) 0;
+            position: relative;
+        }
+
+        .section-sm {
+            padding: calc(var(--section-spacing) / 2) 0;
+        }
+
+        .section-dark {
+            background-color: var(--deep-black);
+        }
+
+        .section-gray {
+            background-color: var(--charcoal);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        .gap-16 {
+            gap: 4rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* ====== COMPONENTS ====== */
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            z-index: 1;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background-color: var(--medium-gray);
+            color: var(--white);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background: var(--dark-chrome);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--gunmetal);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--silver);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--white);
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-with-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-with-icon i {
+            transition: transform var(--transition-normal);
+        }
+
+        .btn-with-icon:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Call button */
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, var(--white), var(--light-silver));
+            color: var(--deep-black);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(45deg, var(--light-silver), var(--white));
+        }
+
+        .call-btn-icon {
+            margin-right: 0.5rem;
+            background-color: var(--deep-black);
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .call-fixed {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--white), var(--light-silver));
+            color: var(--deep-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-normal);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--silver-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-slow);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gunmetal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-normal);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+            background: var(--dark-chrome);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--light-silver);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+
+        /* Image cards */
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            transform: translateY(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .image-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-card-text {
+            color: var(--light-silver);
+            font-size: 0.9rem;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .image-card:hover .image-card-text {
+            max-height: 100px;
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background-color: var(--dark-gray);
+            padding: 2rem;
+            border-radius: var(--radius-sm);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .testimonial-content {
+            position: relative;
+            padding-top: 3rem;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--light-silver);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+        }
+
+        .testimonial-author-title {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--light-silver);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            border-radius: var(--radius-sm);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-action {
+            margin-top: 2rem;
+        }
+
+        .form-card {
+            background-color: var(--charcoal);
+            padding: 2.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-title {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Stats */
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--white), var(--silver));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* ====== HEADER & NAVIGATION ====== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            transition: all var(--transition-normal);
+        }
+
+        .header-inner {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: height var(--transition-normal);
+        }
+
+        .header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header.scrolled .header-inner {
+            height: calc(var(--header-height) * 0.8);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: height var(--transition-normal);
+        }
+
+        .header.scrolled .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--light-silver);
+            font-weight: 500;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--white);
+            transition: width var(--transition-normal);
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            margin-left: 2rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--white);
+            transition: all var(--transition-normal);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--deep-black);
+            z-index: 1000;
+            padding: 2rem;
+            transition: all var(--transition-normal);
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-link {
+            color: var(--light-silver);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            display: block;
+            transition: all var(--transition-normal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--white);
+            padding-left: 0.5rem;
+        }
+
+        .mobile-cta {
+            margin-top: 2rem;
+        }
+
+        .mobile-contact {
+            margin-top: 3rem;
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--light-silver);
+        }
+
+        .mobile-contact-item i {
+            width: 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), transparent 60%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--light-silver);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .booking-form {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 2.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--silver-gradient);
+        }
+
+        .booking-form-title {
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .booking-form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--silver-gradient);
+        }
+
+        /* ====== SERVICES SECTION ====== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        .about-content {
+            padding-right: 3rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .about-values {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-value-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .about-value-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .about-value-title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ====== FLEET SECTION ====== */
+        .fleet-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleet-items {
+            display: flex;
+            transition: transform var(--transition-slow);
+        }
+
+        .fleet-item {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .fleet-image {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .fleet-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fleet-content {
+            flex: 1;
+        }
+
+        .fleet-title {
+            margin-bottom: 1rem;
+        }
+
+        .fleet-description {
+            color: var(--light-silver);
+            margin-bottom: 2rem;
+        }
+
+        .fleet-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fleet-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fleet-feature i {
+            color: var(--accent);
+        }
+
+        .fleet-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .fleet-nav-button {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .fleet-nav-button:hover {
+            background-color: var(--accent);
+        }
+
+        /* ====== TESTIMONIALS SECTION ====== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ====== CTA SECTION ====== */
+        .cta-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: 1.25rem;
+            color: var(--light-silver);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* ====== LOCATIONS SECTION ====== */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            background-color: var(--deep-black);
+            padding: 5rem 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-text {
+            color: var(--light-silver);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--light-silver);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition-normal);
+        }
+
+        .footer-social-link:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--silver-gradient);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--light-silver);
+            transition: all var(--transition-normal);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            margin-right: 0.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            display: inline-block;
+            transition: all var(--transition-normal);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 0.5rem;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--light-silver);
+        }
+
+        .footer-contact-item i {
+            color: var(--accent);
+            width: 20px;
+            margin-top: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-bottom-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom-text {
+            color: var(--light-silver);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-link {
+            color: var(--light-silver);
+            font-size: 0.9rem;
+            transition: color var(--transition-normal);
+        }
+
+        .footer-bottom-link:hover {
+            color: var(--white);
+        }
+
+        /* ====== RESPONSIVE STYLES ====== */
+        @media (max-width: 1200px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .footer-info {
+                grid-column: span 3;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --section-spacing: var(--mobile-section-spacing);
+                --header-height: var(--mobile-header-height);
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-container,
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .booking-form {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .about-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-values {
+                justify-content: center;
+            }
+
+            .fleet-item {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .footer-info {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-3,
+            .grid-4,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-info {
+                grid-column: span 1;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .cta-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-bottom-inner {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .call-fixed {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                width: 100%;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .about-values {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 5rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--medium-gray);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+            z-index: 90;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/160/50" alt="NCC Taxi Puglia">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Servizi</a>
+                <a href="#fleet" class="nav-link">Flotta</a>
+                <a href="#destinations" class="nav-link">Destinazioni</a>
+                <a href="#about" class="nav-link">Chi Siamo</a>
+                <a href="#contacts" class="nav-link">Contatti</a>
+                <div class="nav-cta">
+                    <a href="#booking" class="btn btn-primary btn-with-icon">
+                        <span>Prenota Ora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/120/30" alt="NCC Taxi Puglia">
+            </a>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#" class="mobile-nav-link">Home</a>
+            <a href="#services" class="mobile-nav-link">Servizi</a>
+            <a href="#fleet" class="mobile-nav-link">Flotta</a>
+            <a href="#destinations" class="mobile-nav-link">Destinazioni</a>
+            <a href="#about" class="mobile-nav-link">Chi Siamo</a>
+            <a href="#contacts" class="mobile-nav-link">Contatti</a>
+        </nav>
+        <div class="mobile-cta">
+            <a href="#booking" class="btn btn-primary btn-lg btn-with-icon" style="width: 100%;">
+                <span>Prenota Ora</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="mobile-contact">
+            <h4 class="mobile-contact-heading" style="margin-bottom: 1rem; color: var(--accent);">Contattaci</h4>
+            <div class="mobile-contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+393398197628">+39 339 819 7628</a>
+            </div>
+            <div class="mobile-contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@ncctaxipuglia.it">info@ncctaxipuglia.it</a>
+            </div>
+            <div class="mobile-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/3398197628">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">
+                    Servizio <span class="text-gradient">Premium</span> di Noleggio Con Conducente in Puglia
+                </h1>
+                <p class="hero-subtitle">
+                    Transfer da e per tutti gli aeroporti, porti e stazioni ferroviarie della Puglia con autisti professionisti e veicoli di lusso.
+                </p>
+                <div class="hero-cta">
+                    <a href="#booking" class="btn btn-primary btn-lg btn-with-icon">
+                        <span>Prenota Ora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+393398197628" class="call-btn btn-lg">
+                        <span class="call-btn-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        +39 339 819 7628
+                    </a>
+                </div>
+            </div>
+            <div class="booking-form animate-fade-in animate-delay-1" id="booking">
+                <h3 class="booking-form-title">Richiedi un Preventivo</h3>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label class="form-label" for="passengers">Passeggeri</label>
+                        <select class="form-control form-select" id="passengers" required>
+                            <option value="1">1 Passeggero</option>
+                            <option value="2">2 Passeggeri</option>
+                            <option value="3">3 Passeggeri</option>
+                            <option value="4">4 Passeggeri</option>
+                            <option value="5">5 Passeggeri</option>
+                            <option value="6">6 Passeggeri</option>
+                            <option value="7">7 Passeggeri</option>
+                            <option value="8">8 Passeggeri</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="pickup">Indirizzo di Partenza</label>
+                        <input type="text" class="form-control" id="pickup" placeholder="Es. Aeroporto di Bari" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="destination">Indirizzo di Arrivo</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Es. Alberobello, Puglia" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="date">Data e Ora</label>
+                        <input type="datetime-local" class="form-control" id="date" required>
+                    </div>
+                    <div class="form-action">
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Richiedi Preventivo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-gray" id="services">
+        <div class="container">
+            <h2 class="section-title text-center">
+                I Nostri <span class="text-gradient">Servizi</span>
+            </h2>
+            <p class="text-center text-light" style="max-width: 800px; margin: 0 auto 3rem auto;">
+                Offriamo un'esperienza di viaggio di prima classe con servizi personalizzati per soddisfare le esigenze più esigenti dei nostri clienti.
+            </p>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-plane-arrival"></i>
+                    </div>
+                    <h3 class="card-title">Transfer Aeroportuali</h3>
+                    <p class="card-text">
+                        Servizio di transfer da e per gli aeroporti di Bari e Brindisi con monitoraggio dei voli in tempo reale, assistenza bagagli e attesa gratuita in caso di ritardi.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Prenota Transfer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="card-title">Tour Personalizzati</h3>
+                    <p class="card-text">
+                        Tour guidati alla scoperta delle meraviglie della Puglia con autista privato a vostra disposizione. Itinerari personalizzati in base ai vostri interessi.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Richiedi Tour</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="card-title">Servizio Business</h3>
+                    <p class="card-text">
+                        Servizio esclusivo per professionisti e aziende con veicoli di alta gamma, Wi-Fi a bordo, privacy e massima puntualità per i vostri appuntamenti di lavoro.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Servizio Business</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 class="card-title">Transfer Portuali</h3>
+                    <p class="card-text">
+                        Servizio di transfer da e per i principali porti della Puglia, con assistenza bagagli e possibilità di soste intermedie per le vostre esigenze.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Prenota Transfer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="card-title">Eventi e Cerimonie</h3>
+                    <p class="card-text">
+                        Servizio di lusso per matrimoni, eventi aziendali e occasioni speciali. Veicoli eleganti con conducenti in abito formale per rendere il vostro evento indimenticabile.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Prenota per Eventi</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="card-title">Servizio 24/7</h3>
+                    <p class="card-text">
+                        Disponibilità 24 ore su 24, 7 giorni su 7, per qualsiasi vostra esigenza. Prenotazioni last minute e assistenza continua durante tutto il servizio.
+                    </p>
+                    <div class="card-footer">
+                        <a href="#booking" class="btn-with-icon" style="color: var(--accent);">
+                            <span>Contattaci</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="grid grid-2 items-center">
+                <div class="about-content">
+                    <div class="caption-text">Chi Siamo</div>
+                    <h2 class="section-title">
+                        <span class="text-gradient">L'eccellenza</span> nel Noleggio con Conducente in Puglia
+                    </h2>
+                    <p class="large-text">
+                        Garanzia di qualità nel servizio di noleggio con conducente della Puglia. Da oltre 15 anni rappresentiamo lo standard di riferimento per il trasporto di lusso nella regione.
+                    </p>
+                    <p class="text-light">
+                        Offriamo i migliori servizi di trasporto con autista, impiegando professionisti qualificati e una flotta di veicoli premium costantemente rinnovata, per garantire costantemente comfort, puntualità e cortesia alla nostra clientela.
+                    </p>
+                    <div class="about-values">
+                        <div class="about-value-item">
+                            <div class="about-value-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4 class="about-value-title">Comfort</h4>
+                        </div>
+                        <div class="about-value-item">
+                            <div class="about-value-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="about-value-title">Puntualità</h4>
+                        </div>
+                        <div class="about-value-item">
+                            <div class="about-value-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <h4 class="about-value-title">Cortesia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="NCC Taxi Puglia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-sm section-gray">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="stat-item">
+                    <div class="stat-value" id="stat1">15+</div>
+                    <div class="stat-label">Anni di esperienza</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat2">10000+</div>
+                    <div class="stat-label">Clienti soddisfatti</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat3">25000+</div>
+                    <div class="stat-label">Transfer completati</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat4">20+</div>
+                    <div class="stat-label">Veicoli di lusso</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="section" id="fleet">
+        <div class="container">
+            <h2 class="section-title text-center">
+                La Nostra <span class="text-gradient">Flotta</span>
+            </h2>
+            <p class="text-center text-light" style="max-width: 800px; margin: 0 auto 3rem auto;">
+                Disponiamo di una flotta di veicoli Mercedes-Benz di alta gamma, costantemente rinnovata per garantire massimo comfort e sicurezza.
+            </p>
+            <div class="fleet-slider">
+                <div class="fleet-items" id="fleetItems">
+                    <div class="fleet-item">
+                        <div class="fleet-image">
+                            <img src="/api/placeholder/600/400" alt="Mercedes Classe E">
+                        </div>
+                        <div class="fleet-content">
+                            <h3 class="fleet-title">Mercedes-Benz Classe E</h3>
+                            <p class="fleet-description">
+                                Berlina executive di lusso, perfetta per trasferimenti business e viaggi confortevoli fino a 3 passeggeri con bagagli.
+                            </p>
+                            <div class="fleet-features">
+                                <div class="fleet-feature">
+                                    <i class="fas fa-user"></i>
+                                    <span>3 Passeggeri</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>3 Bagagli</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Climatizzatore</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi a bordo</span>
+                                </div>
+                            </div>
+                            <a href="#booking" class="btn btn-primary btn-with-icon">
+                                <span>Prenota Ora</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <div class="fleet-image">
+                            <img src="/api/placeholder/600/400" alt="Mercedes Classe V">
+                        </div>
+                        <div class="fleet-content">
+                            <h3 class="fleet-title">Mercedes-Benz Classe V</h3>
+                            <p class="fleet-description">
+                                Van premium spazioso e confortevole, ideale per gruppi fino a 7 passeggeri con bagagli o per viaggi aziendali.
+                            </p>
+                            <div class="fleet-features">
+                                <div class="fleet-feature">
+                                    <i class="fas fa-user"></i>
+                                    <span>7 Passeggeri</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>7 Bagagli</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Climatizzatore</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi a bordo</span>
+                                </div>
+                            </div>
+                            <a href="#booking" class="btn btn-primary btn-with-icon">
+                                <span>Prenota Ora</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <div class="fleet-image">
+                            <img src="/api/placeholder/600/400" alt="Mercedes Classe S">
+                        </div>
+                        <div class="fleet-content">
+                            <h3 class="fleet-title">Mercedes-Benz Classe S</h3>
+                            <p class="fleet-description">
+                                L'ammiraglia Mercedes, rappresenta il massimo del lusso e del comfort, ideale per servizi VIP e occasioni speciali.
+                            </p>
+                            <div class="fleet-features">
+                                <div class="fleet-feature">
+                                    <i class="fas fa-user"></i>
+                                    <span>3 Passeggeri</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>3 Bagagli</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Climatizzatore</span>
+                                </div>
+                                <div class="fleet-feature">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi a bordo</span>
+                                </div>
+                            </div>
+                            <a href="#booking" class="btn btn-primary btn-with-icon">
+                                <span>Prenota Ora</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet-nav">
+                    <button class="fleet-nav-button" id="prevFleet">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="fleet-nav-button" id="nextFleet">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title text-center">
+                I Nostri <span class="text-gradient">Clienti</span> Parlano di Noi
+            </h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            Servizio impeccabile! L'autista è stato puntualissimo e molto professionale. L'auto era pulitissima e molto confortevole. Ho apprezzato l'attenzione ai dettagli e la cortesia del conducente. Decisamente da consigliare!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <img src="/api/placeholder/100/100" alt="Marco Rossi">
+                            </div>
+                            <div>
+                                <div class="testimonial-author-name">Marco Rossi</div>
+                                <div class="testimonial-author-title">Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            Ho utilizzato il servizio per un tour della Valle d'Itria. L'autista era molto preparato e ci ha fatto scoprire luoghi meravigliosi che non avremmo mai trovato da soli. Un'esperienza fantastica che consiglio vivamente!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <img src="/api/placeholder/100/100" alt="Laura Bianchi">
+                            </div>
+                            <div>
+                                <div class="testimonial-author-name">Laura Bianchi</div>
+                                <div class="testimonial-author-title">Turista</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            Utilizzo regolarmente questo servizio per i miei viaggi di lavoro in Puglia. Sempre puntuali, auto di lusso impeccabili e autisti cortesi che conoscono bene il territorio. Un servizio che fa davvero la differenza per chi viaggia per affari.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <img src="/api/placeholder/100/100" alt="Giorgio Verdi">
+                            </div>
+                            <div>
+                                <div class="testimonial-author-name">Giorgio Verdi</div>
+                                <div class="testimonial-author-title">Imprenditore</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Prenota il Tuo <span class="text-gradient">Servizio Premium</span></h2>
+                <p class="cta-text">
+                    Contattaci ora per un preventivo personalizzato e scopri l'eccellenza del servizio di noleggio con conducente in Puglia
+                </p>
+                <div class="cta-buttons">
+                    <a href="#booking" class="btn btn-primary btn-lg btn-with-icon">
+                        <span>Richiedi Preventivo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+393398197628" class="call-btn btn-lg">
+                        <span class="call-btn-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        +39 339 819 7628
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section" id="destinations">
+        <div class="container">
+            <h2 class="section-title text-center">
+                Le Principali <span class="text-gradient">Destinazioni</span>
+            </h2>
+            <p class="text-center text-light" style="max-width: 800px; margin: 0 auto 3rem auto;">
+                Operiamo in tutta la Puglia, garantendo un servizio di eccellenza in ogni località. Scopri le principali destinazioni che serviamo.
+            </p>
+            <div class="locations-grid">
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Alberobello">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Alberobello</h3>
+                        <p class="image-card-text">La città dei trulli, patrimonio UNESCO nel cuore della Valle d'Itria.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Bari">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Bari</h3>
+                        <p class="image-card-text">Capoluogo pugliese con il suo affascinante centro storico e il lungomare.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Polignano a Mare">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Polignano a Mare</h3>
+                        <p class="image-card-text">Borgo arroccato sulla scogliera con le sue incantevoli calette.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Ostuni">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Ostuni</h3>
+                        <p class="image-card-text">La città bianca con il suo centro storico candido e panoramico.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Lecce">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Lecce</h3>
+                        <p class="image-card-text">Capitale del barocco pugliese, ricca di arte e cultura.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="/api/placeholder/600/400" alt="Matera">
+                    <div class="image-card-overlay">
+                        <h3 class="image-card-title">Matera</h3>
+                        <p class="image-card-text">La città dei Sassi, patrimonio UNESCO in Basilicata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <img src="/api/placeholder/160/40" alt="NCC Taxi Puglia">
+                    </a>
+                    <p class="footer-text">
+                        Servizio premium di noleggio con conducente in Puglia. Transfer da/per aeroporti, tour personalizzati, servizi business con massima eleganza e professionalità.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Link Rapidi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Servizi</a></li>
+                        <li><a href="#fleet">Flotta</a></li>
+                        <li><a href="#destinations">Destinazioni</a></li>
+                        <li><a href="#about">Chi Siamo</a></li>
+                        <li><a href="#contacts">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4 class="footer-heading">Servizi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Transfer Aeroportuali</a></li>
+                        <li><a href="#services">Tour Personalizzati</a></li>
+                        <li><a href="#services">Servizio Business</a></li>
+                        <li><a href="#services">Transfer Portuali</a></li>
+                        <li><a href="#services">Eventi e Cerimonie</a></li>
+                        <li><a href="#services">Servizio 24/7</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contatti</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <address>
+                            Via Maggio di Bari, 1<br>
+                            Bari, 70121, Puglia<br>
+                            Italia
+                        </address>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+393398197628">+39 339 819 7628</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@ncctaxipuglia.it">info@ncctaxipuglia.it</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/3398197628">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container footer-bottom-inner">
+                    <p class="footer-bottom-text">
+                        &copy; 2025 NCC Taxi Puglia. Tutti i diritti riservati.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                        <a href="#" class="footer-bottom-link">Termini e Condizioni</a>
+                        <a href="#" class="footer-bottom-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed CTA Button -->
+    <a href="tel:+393398197628" class="call-fixed">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const overlay = document.getElementById('overlay');
+        const scrollToTop = document.getElementById('scrollToTop');
+        const fleetItems = document.getElementById('fleetItems');
+        const prevFleet = document.getElementById('prevFleet');
+        const nextFleet = document.getElementById('nextFleet');
+        const bookingForm = document.getElementById('bookingForm');
+
+        // Fleet Slider variables
+        let currentFleetIndex = 0;
+        const fleetItemsCount = fleetItems.children.length;
+
+        // Initialize date picker with current date
+        const setDefaultDateTime = () => {
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const now = new Date();
+                now.setMinutes(now.getMinutes() + 30);
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                
+                dateInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+                dateInput.min = dateInput.value;
+            }
+        };
+        
+        // Set default date time on load
+        setDefaultDateTime();
+
+        // Mobile Menu Toggle
+        const toggleMobileMenu = () => {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        };
+
+        // Event Listeners
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMobileMenu);
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Fleet Slider
+        const updateFleetSlider = () => {
+            fleetItems.style.transform = `translateX(-${currentFleetIndex * 100}%)`;
+        };
+
+        if (prevFleet) {
+            prevFleet.addEventListener('click', () => {
+                currentFleetIndex = (currentFleetIndex === 0) ? fleetItemsCount - 1 : currentFleetIndex - 1;
+                updateFleetSlider();
+            });
+        }
+
+        if (nextFleet) {
+            nextFleet.addEventListener('click', () => {
+                currentFleetIndex = (currentFleetIndex === fleetItemsCount - 1) ? 0 : currentFleetIndex + 1;
+                updateFleetSlider();
+            });
+        }
+
+        // Scroll Events
+        window.addEventListener('scroll', () => {
+            // Header scroll effect
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Scroll to top button visibility
+            if (window.scrollY > 500) {
+                scrollToTop.classList.add('active');
+            } else {
+                scrollToTop.classList.remove('active');
+            }
+        });
+
+        // Scroll to top
+        if (scrollToTop) {
+            scrollToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+                
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+                
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const passengers = document.getElementById('passengers').value;
+                const pickup = document.getElementById('pickup').value;
+                const destination = document.getElementById('destination').value;
+                const date = document.getElementById('date').value;
+                
+                // Simple validation
+                if (!passengers || !pickup || !destination || !date) {
+                    alert('Per favore, compila tutti i campi.');
+                    return;
+                }
+                
+                // Prepare data for submission
+                const formData = {
+                    passengers,
+                    pickup,
+                    destination,
+                    date
+                };
+                
+                // Simulate form submission
+                console.log('Form submitted:', formData);
+                
+                // Show success message - in a real application, this would be handled more elegantly
+                const btn = bookingForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Richiesta Inviata';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Grazie per la tua richiesta! Ti contatteremo al più presto con un preventivo personalizzato.');
+                    bookingForm.reset();
+                    setDefaultDateTime();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1500);
+            });
+        }
+
+        // Handle active nav links
+        const sections = document.querySelectorAll('section[id]');
+        
+        const handleActiveNavLinks = () => {
+            const scrollY = window.scrollY;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', handleActiveNavLinks);
+    </script>
+</body>
+</html>
